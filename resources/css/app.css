@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --color-forest: #24462d;
+    --color-pine: #17381f;
+    --color-sage: #9aa486;
+    --color-cream: #f5f0e7;
+    --color-paper: #fbf8f1;
+    --color-sand: #e6ddcd;
+    --color-coral: #d98a75;
+    --color-ink: #1e271f;
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-script: 'Caveat', cursive;
+    --shadow-paper: 0 18px 55px rgb(47 57 39 / 10%);
+    --shadow-card: 0 10px 30px rgb(40 51 35 / 9%);
+}
+
+html {
+    background: var(--color-cream);
+}
+
+body {
+    background:
+        radial-gradient(circle at 12% 9%, rgb(255 255 255 / 85%), transparent 24%),
+        linear-gradient(180deg, var(--color-cream) 0%, #f3ede3 100%);
+    color: var(--color-ink);
+}
+
+.paper-texture {
+    background-color: var(--color-paper);
+    background-image:
+        radial-gradient(circle at 15% 20%, rgb(80 70 45 / 2.5%) 0 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgb(80 70 45 / 2.5%) 0 1px, transparent 1px);
+    background-size:
+        12px 12px,
+        17px 17px;
+}
+
+.torn-edge {
+    position: relative;
+}
+
+.torn-edge::before {
+    position: absolute;
+    top: -14px;
+    right: 0;
+    left: 0;
+    height: 24px;
+    content: '';
+    background: var(--color-paper);
+    clip-path: polygon(
+        0 48%,
+        2% 35%,
+        4% 55%,
+        7% 38%,
+        10% 51%,
+        13% 34%,
+        16% 53%,
+        19% 39%,
+        22% 55%,
+        26% 36%,
+        29% 52%,
+        32% 38%,
+        36% 56%,
+        40% 35%,
+        44% 52%,
+        48% 39%,
+        52% 55%,
+        56% 36%,
+        60% 52%,
+        64% 37%,
+        68% 54%,
+        72% 35%,
+        76% 51%,
+        80% 38%,
+        84% 55%,
+        88% 36%,
+        92% 53%,
+        96% 38%,
+        100% 49%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.hero-image::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    background: linear-gradient(90deg, rgb(245 240 231 / 32%), transparent 24%, transparent 80%, rgb(23 56 31 / 6%));
+}
+
+.hero-carousel__slide {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(1.25rem);
+}
+
+.hero-carousel__slide.is-active,
+.hero-carousel__slide:first-child[aria-hidden='false'] {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-carousel__dot[aria-selected='true'] {
+    width: 3rem;
+    background: var(--color-forest);
+}
+
+.hero-carousel__dot[aria-selected='false'] {
+    background: var(--color-coral);
+    box-shadow: 0 0 0 3px rgb(255 255 255 / 58%);
+    opacity: 0.82;
+}
+
+.leaf-line::before,
+.leaf-line::after {
+    margin: 0 0.65rem;
+    font-size: 1.15rem;
+    color: #7d8e69;
+    content: '❧';
+}
+
+.stat-card:not(:last-child)::after {
+    position: absolute;
+    top: 13%;
+    right: 0;
+    width: 1px;
+    height: 74%;
+    content: '';
+    background: rgb(37 70 45 / 17%);
+}
+
+.focus-ring:focus-visible {
+    outline: 3px solid rgb(36 70 45 / 28%);
+    outline-offset: 3px;
+}
+
+.prose-content {
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+@media (max-width: 1023px) {
+    .stat-card::after {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

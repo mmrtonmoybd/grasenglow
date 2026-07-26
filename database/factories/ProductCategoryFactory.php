@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Database\Factories;
+
+use App\Models\ProductCategory;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<ProductCategory>
+ */
+final class ProductCategoryFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->unique()->words(2, true),
+            'slug' => fake()->unique()->slug(),
+            'short_description' => fake()->sentence(),
+            'sort_order' => 10,
+            'is_featured' => false,
+            'is_active' => true,
+            'show_when_empty' => false,
+        ];
+    }
+}

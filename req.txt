@@ -1,0 +1,2736 @@
+You are working inside an EXISTING Laravel project.
+
+The following systems are already installed and configured:
+
+* Laravel
+* Filament v5
+* Laravel Boost
+* Existing database connection
+* Existing Laravel application structure
+* Existing Filament admin panel
+* Existing frontend project files
+
+Your responsibility is to transform the supplied Grace & Glow static frontend into a complete, production-ready, database-driven Laravel website with a comprehensive Filament v5 content-management admin panel.
+
+Do not provide only instructions, architecture suggestions, examples, or pseudocode.
+
+Inspect the project, implement the complete system, run the required commands, test the application, fix discovered issues, and report the actual implementation results.
+
+======================================================================
+PRIMARY OBJECTIVE
+=================
+
+Connect the complete supplied frontend to the Laravel backend.
+
+Every meaningful frontend element must be manageable from the Filament admin panel.
+
+This includes:
+
+* Website name
+* Logo
+* Alternative logo
+* Favicon
+* Header content
+* Desktop navigation
+* Mobile navigation
+* Hero section
+* Hero images
+* Headlines
+* Subheadings
+* Descriptions
+* Buttons
+* Button labels
+* Button URLs
+* Impact statistics
+* Brand story
+* Mission
+* Brand values
+* Product categories
+* Product collections
+* Products
+* Product images
+* Product information
+* Product materials
+* Product stories
+* Sustainability information
+* Projects
+* Research publications
+* Impact stories
+* News
+* Blog posts
+* FAQs
+* Contact information
+* Contact form
+* Social-media links
+* Partners
+* Artisans
+* Footer
+* Copyright text
+* Privacy and terms links
+* SEO metadata
+* Open Graph metadata
+* Structured data
+* Publication status
+* Section visibility
+* Section ordering
+* Image alternative text
+* Global website settings
+* All other visible frontend content
+
+Admin changes must appear on the frontend immediately after saving, subject only to correctly invalidated application caching.
+
+Do not leave important frontend content hardcoded inside Blade templates.
+
+Do not create a disconnected admin panel that does not control the actual frontend.
+
+Do not redesign the supplied frontend.
+
+Do not replace it with a generic template.
+
+Do not create an artificial-looking generated design.
+
+The uploaded frontend must remain the visual source of truth.
+
+======================================================================
+SOURCE MATERIAL
+===============
+
+Use these sources:
+
+1. The supplied `grace-glow.zip`
+2. The supplied `index.html`
+3. All images and assets contained in the ZIP
+4. Grace & Glow LinkedIn page:
+   https://www.linkedin.com/company/grace-glow-sustainable
+5. The existing Laravel project
+6. Existing application conventions
+7. Existing reusable components
+8. Existing project models, services, policies, and packages
+
+The supplied ZIP contains the required landing-page design and assets.
+
+Preserve the existing visual identity, including:
+
+* Page layout
+* Section order
+* Spacing
+* Typography
+* Responsive behavior
+* Colors
+* Cards
+* Border radiuses
+* Paper texture
+* Torn-paper visual treatment
+* Hero layout
+* Navigation layout
+* Impact-statistics layout
+* Product-card layout
+* Footer layout
+* Mobile layout
+* Hover behavior
+* Shadows
+* Decorative visual details
+
+The initial frontend contains approximately these sections:
+
+* Header
+* Main navigation
+* Mobile navigation
+* Hero section
+* Impact metrics
+* Brand story
+* Mission
+* Brand values
+* Product-category cards
+* Product-story call to action
+* Footer
+* Social links
+
+The initial impact values include:
+
+* 450+ KG fabric waste diverted from landfill
+* 160+ quilts and products created
+* 250+ tote bags made
+* 18+ tailor shops partnered
+* 9+ women artisans supported
+* 1,200+ meals provided to stray animals
+* 52+ veterinary treatments supported
+
+Import these as editable initial records.
+
+Do not keep these values hardcoded.
+
+The initial product categories shown in the ZIP include:
+
+* Quilts
+* Tote Bags
+* Home Décor
+
+The LinkedIn content provides additional product and brand context, including:
+
+* Handmade lifestyle products
+* Handcrafted patchwork quilts
+* Kantha-inspired products
+* Hand-painted cotton sarees
+* Table linens
+* Fabric accessories
+* Patchwork quilt katha
+* Sofa throws
+* Cotton floor mats
+* Tablecloths
+* Textile art
+* Chitrokatha collection
+* Ronger Golpo or Stories of Many Colors
+* Products made from rescued or leftover fabric
+* One-of-a-kind products
+* Zero-waste practices
+* Collection of leftover fabric
+* Fabric sorting by color, size, and material
+* Washing and preparing rescued fabric
+* Sustainable craftsmanship
+* Traditional craftsmanship combined with modern design
+* Women artisans
+* Textile-waste optimization and research
+* Environmental sustainability
+* Support for stray animals
+* Animal food support
+* Veterinary treatment and emergency-care support
+* Dhaka-based operations
+
+Use this information as initial CMS content where appropriate.
+
+Do not invent:
+
+* Product prices
+* Phone numbers
+* Email addresses
+* Physical addresses
+* Product inventory
+* Legal registration details
+* Certification claims
+* Donation percentages
+* Medical claims
+* Environmental statistics not provided by the sources
+* Customer testimonials
+* Payment methods
+* Shipping rules
+* Warranty information
+* Product availability
+* Partner names
+* Artisan names
+* Research results
+* Completed-project results
+
+When information is unavailable:
+
+* Make the field editable
+* Leave it empty
+* Hide the empty frontend element cleanly
+* Do not show fake placeholder content publicly
+
+Do not scrape LinkedIn during normal website requests.
+
+LinkedIn is a reference source for initial content only.
+
+The production frontend must obtain its information from the local Laravel database.
+
+======================================================================
+MANDATORY FIRST PHASE: PROJECT INSPECTION
+=========================================
+
+Before modifying any code:
+
+1. Inspect the complete existing Laravel project.
+2. Read all project instruction files.
+3. Read Laravel Boost instructions.
+4. Inspect the existing application architecture.
+5. Inspect the uploaded ZIP and all included files.
+6. Inspect the current frontend implementation.
+7. Identify existing functionality before creating new functionality.
+
+Use Laravel Boost tools to inspect:
+
+* Installed Laravel version
+* Installed Filament version
+* Installed PHP version
+* Composer packages
+* NPM packages
+* Database driver
+* Existing migrations
+* Existing database tables
+* Existing models
+* Existing routes
+* Existing controllers
+* Existing Blade components
+* Existing Livewire components
+* Existing authentication model
+* Existing admin model
+* Existing Filament panel provider
+* Existing authorization system
+* Existing roles and permissions
+* Existing policies
+* Existing Filament Shield configuration
+* Existing media or file-storage implementation
+* Existing SEO implementation
+* Existing cache implementation
+* Existing frontend build system
+* Existing Tailwind configuration
+* Existing Vite configuration
+* Existing test framework
+* Existing application tests
+* Existing coding conventions
+
+Search the exact installed Laravel and Filament documentation through Laravel Boost before implementing APIs whose version-specific behavior is uncertain.
+
+Do not assume an API from an older Filament version.
+
+Do not use Filament v2, v3, or v4 syntax in a Filament v5 project.
+
+Do not reinstall Laravel.
+
+Do not reinstall Filament.
+
+Do not run:
+
+* `filament:install`
+* A new Laravel project installer
+* A destructive starter-kit installer
+
+Do not overwrite:
+
+* The existing Filament panel provider
+* Existing authentication
+* Existing admin accounts
+* Existing roles
+* Existing permission records
+* Existing application routes without inspection
+* Existing project configuration without preserving required behavior
+
+Do not duplicate existing suitable models, services, policies, settings systems, media systems, or SEO systems.
+
+Do not run destructive database commands such as:
+
+* `php artisan migrate:fresh`
+* `php artisan db:wipe`
+* Dropping existing production tables
+* Truncating existing production content
+* Deleting existing users or administrators
+
+Use normal reversible migrations.
+
+Preserve all existing application functionality.
+
+======================================================================
+IMPLEMENTATION ARCHITECTURE
+===========================
+
+Use a structured CMS architecture.
+
+Use dedicated relational models for reusable business entities such as:
+
+* Products
+* Product categories
+* Product collections
+* Pages
+* Posts
+* Projects
+* Research publications
+* Impact metrics
+* Impact stories
+* FAQs
+* Partners
+* Artisans
+* Contact messages
+
+Use a controlled page-section system for flexible page content.
+
+Use global settings for site-wide information.
+
+Use reusable Blade components for rendering.
+
+Use Filament resources, relation managers, widgets, and settings pages for administration.
+
+Do not store the complete website inside one unstructured JSON column.
+
+Do not create one database column for every sentence on the website.
+
+Use a balanced architecture:
+
+* Structured database models for domain content
+* Reusable page sections for flexible layouts
+* Global settings for site-wide information
+* Blade components for rendering
+* Filament resources for management
+* Service classes for shared resolution and caching
+* Policies for authorization
+
+Use the existing project namespaces and folder conventions.
+
+Use PHP enums where they improve safety, including:
+
+* Content publication status
+* Page template
+* Section type
+* Link type
+* Link target
+* Product availability status
+* Project status
+* Research status
+* Contact-message status
+
+Do not permit administrators to enter arbitrary:
+
+* PHP
+* Blade code
+* JavaScript
+* CSS
+* SQL
+* Executable markup
+* Dynamic component class names
+* Unsafe HTML attributes
+
+======================================================================
+RECOMMENDED DATA MODEL
+======================
+
+Adapt this model structure to the existing project.
+
+Reuse existing equivalent models or tables when suitable.
+
+Do not create duplicate implementations.
+
+---
+
+1. Site settings
+
+---
+
+Create or reuse a singleton site-settings implementation for global website information.
+
+Suggested brand fields:
+
+* site_name
+* short_site_name
+* primary_tagline
+* secondary_tagline
+* logo
+* dark_logo
+* mobile_logo
+* favicon
+* default_share_image
+
+Suggested contact fields:
+
+* email
+* secondary_email
+* phone
+* WhatsApp number
+* address_line_1
+* address_line_2
+* city
+* postal_code
+* country
+* map_url
+* business_hours
+
+Suggested frontend fields:
+
+* primary_color
+* secondary_color
+* accent_color
+* background_color
+* text_color
+* heading_font
+* body_font
+* display_announcement
+* announcement_text
+* announcement_url
+* announcement_button_label
+
+Suggested footer fields:
+
+* footer_description
+* footer_thank_you_text
+* copyright_text
+* privacy_page_id
+* terms_page_id
+
+Suggested default SEO fields:
+
+* default_meta_title
+* default_meta_description
+* default_meta_keywords
+* default_open_graph_image
+* organization_schema_name
+* organization_schema_description
+* organization_schema_logo
+* canonical_domain
+* robots_index_enabled
+* sitemap_enabled
+
+Suggested integration fields:
+
+* LinkedIn URL
+* Facebook URL
+* Instagram URL
+* YouTube URL
+* Pinterest URL
+* TikTok URL
+* Google Analytics configuration
+* Google Tag Manager configuration
+* Search Console verification
+* Other supported verification fields
+
+Only output integration scripts when valid values are configured.
+
+Escape and validate every setting.
+
+Implement an efficient settings service.
+
+Cache the global settings as one resolved object.
+
+Invalidate the settings cache immediately whenever settings are saved.
+
+Do not query the settings table separately from every Blade component.
+
+Do not allow multiple accidental settings records.
+
+Use a dedicated Filament settings page instead of a normal multi-record resource when appropriate.
+
+---
+
+2. Navigation menus
+
+---
+
+Create configurable navigation support.
+
+Suggested models:
+
+* NavigationMenu
+* NavigationItem
+
+Support:
+
+* Header menu
+* Mobile menu
+* Footer quick-links menu
+* Footer help menu
+* Nested menu items
+* Internal page links
+* Product-category links
+* Collection links
+* Project links
+* News links
+* External URLs
+* Section-anchor links
+* Custom labels
+* Controlled icon selection
+* Sort order
+* Active status
+* Open in new tab
+* `nofollow`
+* Desktop visibility
+* Mobile visibility
+
+Generate URLs safely.
+
+Prevent unsafe protocols such as:
+
+* `javascript:`
+* `data:`
+* `vbscript:`
+
+Use the same underlying menu records for desktop and mobile where appropriate while supporting device-specific visibility.
+
+Prevent recursive menu relationships.
+
+Prevent excessive nesting.
+
+Do not allow invalid menu records to break frontend rendering.
+
+---
+
+3. CMS pages
+
+---
+
+Create or reuse a `Page` model.
+
+Suggested fields:
+
+* title
+* slug
+* navigation_label
+* page_template
+* excerpt
+* body
+* hero_title
+* hero_subtitle
+* hero_description
+* hero_image
+* hero_image_alt
+* primary_cta_label
+* primary_cta_url
+* secondary_cta_label
+* secondary_cta_url
+* status
+* published_at
+* sort_order
+* is_indexable
+* canonical_url
+* meta_title
+* meta_description
+* meta_keywords
+* open_graph_title
+* open_graph_description
+* open_graph_image
+* Twitter card type
+* schema_type
+* created_by
+* updated_by
+* deleted_at when soft deletes are appropriate
+
+Support publication statuses:
+
+* Draft
+* Published
+* Scheduled
+* Archived
+
+Only published records with valid publication dates may appear publicly.
+
+Scheduled content must remain hidden until its publication time.
+
+Use unique slugs.
+
+Reserve protected system slugs where required.
+
+Create CMS pages for:
+
+* Home
+* About Us
+* Our Mission
+* What We Do
+* Our Products
+* Impact
+* Projects and Research
+* News
+* Contact Us
+* FAQs
+* Privacy Policy
+* Terms and Conditions
+
+The homepage may use a dedicated page template while still being represented by the CMS.
+
+---
+
+4. Page sections
+
+---
+
+Create a flexible `PageSection` system connected to pages.
+
+Suggested fields:
+
+* page_id
+* section_type
+* internal_name
+* eyebrow
+* heading
+* subheading
+* body
+* image
+* mobile_image
+* image_alt
+* background_image
+* background_image_alt
+* primary_cta_label
+* primary_cta_url
+* secondary_cta_label
+* secondary_cta_url
+* settings
+* sort_order
+* is_enabled
+* created_by
+* updated_by
+
+Supported section types should include:
+
+* Hero
+* Rich text
+* Image and text
+* Impact metrics
+* Values grid
+* Product-category grid
+* Featured products
+* Featured collections
+* Brand story
+* Mission
+* Process steps
+* Projects
+* Research
+* News
+* Testimonials
+* FAQs
+* Gallery
+* Team or artisans
+* Partners
+* Contact call to action
+* Custom call to action
+
+The `settings` JSON must contain only controlled section-specific presentation settings.
+
+Do not allow arbitrary executable configuration.
+
+Validate the allowed settings for every section type.
+
+Allow administrators to:
+
+* Add sections
+* Edit sections
+* Duplicate sections
+* Delete sections
+* Reorder sections
+* Enable sections
+* Disable sections
+* Preview sections
+* Select related records
+* Configure section-specific layouts
+
+Use Filament repeaters, builders, relation managers, or dedicated resources where appropriate.
+
+Do not create one excessively large and unstable form.
+
+Use conditional fields based on the selected section type.
+
+Prevent unsupported section settings from being saved.
+
+---
+
+5. Impact metrics
+
+---
+
+Create or reuse an `ImpactMetric` model.
+
+Suggested fields:
+
+* title
+* numeric_value
+* display_value
+* unit
+* prefix
+* suffix
+* description
+* icon
+* image
+* image_alt
+* sort_order
+* is_active
+* last_verified_at
+* created_by
+* updated_by
+
+Use `display_value` for formatted values such as:
+
+* `450+`
+* `1,200+`
+* `52+`
+
+Do not perform arithmetic using formatted display strings.
+
+Allow icon selection only from a controlled icon allowlist.
+
+Render all impact metrics dynamically in the existing homepage design.
+
+Initial records must include:
+
+* 450+ KG fabric waste diverted from landfill
+* 160+ quilts and products created
+* 250+ tote bags made
+* 18+ tailor shops partnered
+* 9+ women artisans supported
+* 1,200+ meals provided to stray animals
+* 52+ veterinary treatments supported
+
+All fields must remain editable.
+
+---
+
+6. Brand values
+
+---
+
+Create or reuse a `BrandValue` model.
+
+Initial records:
+
+* Sustainable
+* Handmade
+* Empowering
+* Compassionate
+
+Suggested fields:
+
+* title
+* description
+* icon
+* image
+* image_alt
+* sort_order
+* is_active
+* created_by
+* updated_by
+
+Keep the values editable and reorderable.
+
+Do not hardcode their frontend order.
+
+---
+
+7. Product categories
+
+---
+
+Create or reuse a `ProductCategory` model.
+
+Suggested fields:
+
+* parent_id
+* name
+* slug
+* short_description
+* description
+* featured_image
+* featured_image_alt
+* banner_image
+* banner_image_alt
+* icon
+* sort_order
+* is_featured
+* is_active
+* meta_title
+* meta_description
+* meta_keywords
+* canonical_url
+* open_graph_image
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Support hierarchical categories when useful.
+
+Initial categories should include:
+
+* Quilts
+* Tote Bags
+* Home Décor
+* Sarees
+* Table Linens
+* Fabric Accessories
+* Floor Mats
+* Sofa Throws
+* Textile Art
+
+Do not show empty categories publicly unless explicitly configured.
+
+Prevent circular parent relationships.
+
+Use unique slugs.
+
+---
+
+8. Product collections
+
+---
+
+Create or reuse a `ProductCollection` model.
+
+Suggested initial collections:
+
+* Ronger Golpo
+* Chitrokatha
+
+Suggested fields:
+
+* name
+* slug
+* subtitle
+* short_description
+* description
+* cover_image
+* cover_image_alt
+* banner_image
+* banner_image_alt
+* status
+* published_at
+* sort_order
+* is_featured
+* meta_title
+* meta_description
+* meta_keywords
+* canonical_url
+* open_graph_image
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Products may belong to multiple collections when the business structure requires it.
+
+Only published collections may appear publicly.
+
+---
+
+9. Products
+
+---
+
+Create or reuse a `Product` model suitable for a product catalogue.
+
+This is not automatically a complete e-commerce checkout system.
+
+Do not add:
+
+* Shopping cart
+* Checkout
+* Payment gateway
+* Orders
+* Inventory transactions
+* Shipping calculator
+* Coupon system
+
+Do not add those systems unless equivalent functionality already exists in the project or the project clearly requires integration with an existing implementation.
+
+Suggested basic product fields:
+
+* product_category_id
+* name
+* slug
+* SKU
+* short_description
+* description
+* story
+* materials
+* craftsmanship_details
+* sustainability_details
+* animal_support_details
+* care_instructions
+* dimensions
+* weight
+* color_description
+* price, nullable
+* compare_price, nullable
+* currency, nullable
+* availability_status
+* stock_quantity, nullable
+* made_to_order
+* lead_time
+* inquiry_enabled
+* inquiry_button_label
+* inquiry_url
+
+Suggested image fields and relationships:
+
+* featured_image
+* featured_image_alt
+* gallery images
+* gallery alternative text
+* image captions
+* image sort order
+
+Suggested visibility fields:
+
+* status
+* published_at
+* is_featured
+* is_new
+* sort_order
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Suggested SEO fields:
+
+* meta_title
+* meta_description
+* meta_keywords
+* canonical_url
+* open_graph_title
+* open_graph_description
+* open_graph_image
+* is_indexable
+
+Suggested relationships:
+
+* Category
+* Collections
+* Product images
+* Related products
+
+Support:
+
+* Draft products
+* Published products
+* Scheduled products
+* Archived products
+* Featured products
+* New products
+* Reordering
+* Category filtering
+* Collection filtering
+* Search
+* Related products
+
+Hide price-related elements when no price is configured.
+
+Do not display fake stock information.
+
+Do not display fake availability information.
+
+Use a configurable inquiry call to action when checkout is not implemented.
+
+---
+
+10. Product images
+
+---
+
+Create a related `ProductImage` model when the existing media system does not already support ordered product galleries.
+
+Suggested fields:
+
+* product_id
+* image
+* alt_text
+* caption
+* sort_order
+* is_primary
+* created_at
+* updated_at
+
+Every meaningful public image must have editable alternative text.
+
+Require alternative text for public content images unless an image is explicitly decorative.
+
+Do not allow multiple primary images for the same product.
+
+---
+
+11. Projects
+
+---
+
+Create or reuse a `Project` model.
+
+Suggested fields:
+
+* title
+* slug
+* short_description
+* description
+* objective
+* methodology
+* results
+* start_date
+* end_date
+* status
+* featured_image
+* featured_image_alt
+* gallery
+* partners
+* external_url
+* document
+* is_featured
+* published_at
+* meta_title
+* meta_description
+* meta_keywords
+* canonical_url
+* open_graph_image
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Create initial content describing the available textile-waste optimization initiative.
+
+Do not invent completed results.
+
+Use language such as “ongoing project” when no completed result is available.
+
+---
+
+12. Research publications
+
+---
+
+Create or reuse a `ResearchPublication` model.
+
+Suggested fields:
+
+* title
+* slug
+* abstract
+* authors
+* publication_name
+* publication_date
+* research_status
+* document
+* external_url
+* featured_image
+* featured_image_alt
+* keywords
+* published_at
+* meta_title
+* meta_description
+* canonical_url
+* open_graph_image
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Only publish verified information.
+
+Do not invent:
+
+* Authors
+* Publication dates
+* Research institutions
+* Research conclusions
+* Download documents
+* Scientific findings
+
+---
+
+13. Impact stories
+
+---
+
+Create or reuse an `ImpactStory` model.
+
+Suggested fields:
+
+* title
+* slug
+* excerpt
+* body
+* beneficiary_type
+* impact_date
+* featured_image
+* featured_image_alt
+* gallery
+* related_project_id
+* is_featured
+* status
+* published_at
+* SEO fields
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Allow impact stories relating to:
+
+* Textile-waste diversion
+* Women artisans
+* Tailor-shop partnerships
+* Meals for stray animals
+* Veterinary support
+* Community projects
+
+Protect sensitive personal information.
+
+Do not expose:
+
+* Medical records
+* Private contact details
+* Home addresses
+* Personally identifying beneficiary information
+* Confidential veterinary information
+
+Do not create beneficiary profiles without real approved information.
+
+---
+
+14. Partners
+
+---
+
+Create or reuse a `Partner` model.
+
+Suggested fields:
+
+* name
+* partner_type
+* logo
+* logo_alt
+* description
+* website
+* location
+* partnership_start_date
+* is_featured
+* sort_order
+* is_active
+* created_by
+* updated_by
+
+Do not create fake partner records.
+
+External website URLs must be validated.
+
+---
+
+15. Artisans
+
+---
+
+Create or reuse an `Artisan` model.
+
+Suggested fields:
+
+* name or public display name
+* role
+* biography
+* photograph
+* photograph_alt
+* quote
+* sort_order
+* is_featured
+* is_active
+* consent_confirmed
+* created_by
+* updated_by
+
+Personal profiles must be optional.
+
+Do not publish names, photos, or quotes without admin-supplied consent and information.
+
+---
+
+16. News and blog
+
+---
+
+Create or reuse:
+
+* Post
+* PostCategory
+* PostTag when needed
+
+Suggested post fields:
+
+* title
+* slug
+* excerpt
+* body
+* featured_image
+* featured_image_alt
+* author
+* category
+* tags
+* status
+* published_at
+* is_featured
+* reading_time
+* meta_title
+* meta_description
+* meta_keywords
+* canonical_url
+* open_graph_title
+* open_graph_description
+* open_graph_image
+* is_indexable
+* created_by
+* updated_by
+* deleted_at when appropriate
+
+Provide:
+
+* News index page
+* Category filtering
+* Pagination
+* Post detail page
+* Related posts
+* Breadcrumbs
+* Scheduled publishing
+* Draft preview for authorized administrators
+
+Do not expose unpublished posts publicly.
+
+Calculate reading time safely from sanitized text.
+
+---
+
+17. FAQs
+
+---
+
+Create or reuse an `FAQ` model.
+
+Suggested fields:
+
+* category
+* question
+* answer
+* sort_order
+* is_active
+* show_on_homepage
+* created_by
+* updated_by
+
+Render accessible accordions.
+
+Generate FAQ structured data only for FAQs visibly rendered on the current page.
+
+---
+
+18. Testimonials
+
+---
+
+Create testimonial support only as an optional CMS feature.
+
+Do not fabricate initial testimonials.
+
+Suggested fields:
+
+* name
+* role
+* organization
+* quote
+* image
+* image_alt
+* rating, nullable
+* sort_order
+* is_featured
+* is_active
+* consent_confirmed
+* created_by
+* updated_by
+
+Do not display ratings when none exist.
+
+Do not create fake reviews or ratings.
+
+---
+
+19. Contact form and messages
+
+---
+
+Create a functional contact form and a `ContactMessage` model.
+
+Suggested fields:
+
+* name
+* email
+* phone, nullable
+* subject
+* message
+* status
+* source_page
+* submitted_at
+* assigned_to, nullable
+* internal_notes
+* replied_at
+* archived_at
+
+Suggested statuses:
+
+* New
+* Read
+* In Progress
+* Replied
+* Archived
+* Spam
+
+Requirements:
+
+* Server-side validation
+* CSRF protection
+* Rate limiting
+* Spam honeypot
+* Safe maximum lengths
+* Plain-text input where appropriate
+* Sanitized message display
+* Clear frontend success feedback
+* Clear frontend validation feedback
+* Admin unread indicators
+* Status management
+* Assignment support when useful
+* Internal notes
+* Optional queued administrator notification when mail is configured
+
+Do not fail a valid user submission merely because an optional notification email fails.
+
+Log notification failures safely.
+
+Do not expose internal notes publicly.
+
+---
+
+20. Social links
+
+---
+
+Create a `SocialLink` model or manage links through validated global settings.
+
+Suggested fields:
+
+* platform
+* label
+* URL
+* icon
+* sort_order
+* is_active
+* open_in_new_tab
+
+Initial LinkedIn URL:
+
+https://www.linkedin.com/company/grace-glow-sustainable
+
+Validate external URLs.
+
+Add:
+
+* `rel="noopener noreferrer"`
+
+when opening a new tab.
+
+Use a controlled list of supported platforms and icons.
+
+---
+
+21. Redirects
+
+---
+
+Create redirect management when no equivalent system exists.
+
+Suggested fields:
+
+* old_path
+* destination_url
+* status_code
+* is_active
+* hit_count
+* created_by
+* updated_by
+
+Allow only safe redirect status codes:
+
+* 301
+* 302
+* 307
+* 308
+
+Prevent:
+
+* Redirect loops
+* Self-redirects
+* Unsafe protocols
+* Invalid paths
+* Uncontrolled external redirects
+
+Use this system when changing published slugs.
+
+======================================================================
+FILAMENT V5 ADMIN PANEL
+=======================
+
+Build a complete and organized Filament v5 administration system.
+
+Use the exact APIs supported by the installed Filament version.
+
+Do not use outdated Filament syntax.
+
+Use Laravel Boost documentation search whenever API behavior is uncertain.
+
+Create appropriate:
+
+* Filament resources
+* Resource pages
+* Relation managers
+* Schemas
+* Tables
+* Custom pages
+* Widgets
+* Actions
+* Bulk actions
+* Filters
+* Form components
+
+Suggested navigation groups:
+
+1. Dashboard
+2. Website
+3. Products
+4. Content
+5. Impact
+6. Projects & Research
+7. Messages
+8. SEO
+9. Settings
+10. Administration
+
+Suggested admin resources:
+
+Website:
+
+* Pages
+* Page Sections
+* Navigation Menus
+* Social Links
+* Redirects
+
+Products:
+
+* Product Categories
+* Product Collections
+* Products
+
+Content:
+
+* News Posts
+* Post Categories
+* FAQs
+* Testimonials
+
+Impact:
+
+* Impact Metrics
+* Impact Stories
+* Artisans
+* Partners
+
+Projects & Research:
+
+* Projects
+* Research Publications
+
+Messages:
+
+* Contact Messages
+
+Settings:
+
+* Site Settings
+* SEO Defaults
+
+Use a dedicated singular settings page for site-wide settings rather than allowing multiple site-setting records.
+
+Filament forms must provide:
+
+* Clear sections
+* Tabs where useful
+* Field groups
+* Helpful labels
+* Helper text
+* Validation
+* Required indicators
+* Character counters
+* Slug generation
+* Slug editing
+* Image previews
+* Reordering
+* Relationship selectors
+* Publication controls
+* SEO preview
+* Link-target controls
+* Toggle controls
+* Conditional fields
+* Safe rich-text editing
+* Date-time pickers
+* Status badges
+* Confirmation for destructive actions
+* Alternative-text fields
+* Image-ratio guidance
+
+Filament tables must provide:
+
+* Search
+* Sorting
+* Filters
+* Publication-status filters
+* Featured filters
+* Category filters
+* Date filters
+* Active-state filters
+* Toggleable columns
+* Pagination
+* Bulk publishing where safe
+* Bulk unpublishing where safe
+* Bulk archiving where safe
+* Bulk deletion only with authorization
+* Reordering where relevant
+* Useful record actions
+* Empty-state messages
+* Record counts where efficient
+
+Use global search for useful records such as:
+
+* Products
+* Pages
+* News posts
+* Projects
+* Research publications
+* Contact messages
+
+Do not expose:
+
+* Secret settings
+* Private internal notes
+* Sensitive personal information
+
+through unrestricted global search.
+
+======================================================================
+ADMIN DASHBOARD
+===============
+
+Create useful Filament dashboard widgets.
+
+Suggested widgets:
+
+* Published products
+* Draft products
+* Product categories
+* Published news posts
+* Active projects
+* Research publications
+* Total textile waste diverted
+* Products created
+* Women artisans supported
+* Tailor-shop partners
+* Meals provided
+* Veterinary treatments
+* New contact messages
+* Recent content updates
+* Recent contact messages
+* Scheduled content
+* Content requiring publication
+
+Use efficient aggregate queries.
+
+Do not:
+
+* Execute one query per dashboard card
+* Load complete tables into memory
+* Use aggressive polling
+* Refresh widgets unnecessarily
+* Query global settings repeatedly
+
+======================================================================
+AUTHORIZATION AND ADMIN SECURITY
+================================
+
+Inspect the existing admin authentication and authorization system first.
+
+Reuse:
+
+* Existing admin model
+* Existing authentication guard
+* Existing Filament user model
+* Existing role system
+* Existing permission package
+* Existing policies
+* Existing Filament Shield configuration
+
+If Filament Shield is already installed, integrate every resource, custom page, widget, and custom action with it.
+
+If another permission package exists, reuse it.
+
+If no role or permission package exists, implement secure Laravel policies and gates without introducing an unnecessary dependency.
+
+Suggested roles:
+
+* Super Admin
+* Content Manager
+* Product Manager
+* Impact Manager
+* Message Manager
+* SEO Manager
+* Viewer
+
+Possible permission areas:
+
+* View settings
+* Edit settings
+* Manage navigation
+* Manage pages
+* Publish pages
+* Manage products
+* Publish products
+* Manage posts
+* Publish posts
+* Manage projects
+* Manage research
+* Manage impact records
+* View contact messages
+* Update contact messages
+* Delete contact messages
+* Manage redirects
+* Manage users
+* Manage roles
+
+Super Admin may bypass normal checks through a controlled policy mechanism.
+
+Do not use hidden frontend buttons as authorization.
+
+Authorize every server-side action.
+
+Protect:
+
+* Resources
+* Resource pages
+* Custom Filament pages
+* Widgets
+* Table actions
+* Bulk actions
+* Exports
+* Relation managers
+* Settings updates
+* Slug changes
+* Publishing actions
+
+Enable Filament-compatible multi-factor authentication only when it fits the existing authentication implementation and can be introduced without locking out existing users.
+
+Do not force an MFA migration that prevents existing administrators from logging in.
+
+======================================================================
+FRONTEND IMPLEMENTATION
+=======================
+
+Convert the supplied static HTML into reusable Laravel Blade architecture.
+
+Suggested structure:
+
+* Base public layout
+* Header component
+* Desktop navigation component
+* Mobile navigation component
+* Footer component
+* SEO component
+* Breadcrumb component
+* Hero component
+* Impact-metrics component
+* Story component
+* Values component
+* Product-category-card component
+* Product-card component
+* Product-collection-card component
+* Project-card component
+* Research-card component
+* News-card component
+* FAQ component
+* Contact-form component
+* Reusable button component
+* Responsive image component
+* Page-section renderer
+
+Do not duplicate complete header and footer markup across templates.
+
+Maintain the supplied frontend design as closely as possible.
+
+Do not introduce a new frontend framework unless one is already used.
+
+Prefer:
+
+* Blade
+* Existing Tailwind configuration
+* Alpine.js for small interactions
+* Livewire only for interactions that benefit from server-managed state
+
+Do not introduce:
+
+* React
+* Vue
+* Inertia
+* A separate SPA
+* A large animation framework
+
+unless the existing project already uses the technology and integration is clearly appropriate.
+
+Do not use the Tailwind CDN in production.
+
+Move Tailwind configuration into the existing Vite and Tailwind build process.
+
+Move inline CSS into organized application styles where practical.
+
+Move inline JavaScript into the existing Vite-managed JavaScript entry point.
+
+Keep JavaScript minimal.
+
+Maintain progressive enhancement.
+
+The main navigation must work correctly on desktop and mobile.
+
+All navigation links must point to:
+
+* Real pages
+* Valid routes
+* Valid page sections
+* Valid external URLs
+
+The currently referenced but missing frontend destinations must be implemented, including:
+
+* About Us
+* Our Mission
+* What We Do
+* Products
+* Impact
+* Projects & Research
+* News
+* Contact
+* FAQs
+
+Use correct active-navigation states.
+
+Use meaningful URLs.
+
+Suggested routes:
+
+* `/`
+* `/about`
+* `/mission`
+* `/what-we-do`
+* `/products`
+* `/products/{product:slug}`
+* `/product-categories/{productCategory:slug}`
+* `/collections/{collection:slug}`
+* `/impact`
+* `/impact/{impactStory:slug}`
+* `/projects`
+* `/projects/{project:slug}`
+* `/research`
+* `/research/{researchPublication:slug}`
+* `/news`
+* `/news/{post:slug}`
+* `/faq`
+* `/contact`
+* `/privacy-policy`
+* `/terms-and-conditions`
+
+Adapt routes to existing project conventions.
+
+Use route-model binding.
+
+Handle missing or unpublished records with correct 404 responses.
+
+Do not expose:
+
+* Soft-deleted content
+* Scheduled future content
+* Archived content
+* Draft content
+* Disabled records
+
+publicly.
+
+======================================================================
+HOMEPAGE REQUIREMENTS
+=====================
+
+The homepage must initially appear nearly identical to the supplied `index.html`.
+
+Make the following elements dynamic.
+
+Header:
+
+* Logo
+* Site name
+* Tagline
+* Desktop menu
+* Mobile menu
+* Social links when displayed
+* Header button when displayed
+
+Hero:
+
+* Eyebrow text
+* Main heading
+* Script-style heading
+* Description
+* Hero image
+* Mobile hero image
+* Image alternative text
+* Primary button
+* Secondary button
+* Button destinations
+* Section visibility
+* Section order
+
+Impact section:
+
+* Heading
+* Description
+* Every metric
+* Metric icon
+* Metric value
+* Metric unit
+* Metric description
+* Metric order
+* Thank-you message
+* Section visibility
+
+Story section:
+
+* Image
+* Image alternative text
+* Overlay text
+* Heading
+* Story body
+* Button label
+* Button destination
+* Section visibility
+
+Mission section:
+
+* Heading
+* Description
+* Mission content
+* Button when configured
+* Section visibility
+
+Values section:
+
+* Section heading
+* Sustainable value
+* Handmade value
+* Empowering value
+* Compassionate value
+* Value titles
+* Value descriptions
+* Value icons
+* Value ordering
+* Value visibility
+* Section visibility
+
+Products section:
+
+* Section heading
+* Section description
+* Featured categories
+* Category images
+* Category image alternative text
+* Category titles
+* Category descriptions
+* Product-story card
+* Product call-to-action label
+* Product call-to-action URL
+* Section visibility
+
+Footer:
+
+* Logo
+* Tagline
+* Description
+* Quick links
+* Help links
+* Social links
+* Thank-you text
+* Copyright
+* Privacy link
+* Terms link
+* Contact information
+* Footer visibility options
+
+Allow administrators to hide and reorder homepage sections.
+
+Do not allow an invalid section order or incomplete section to break the frontend design.
+
+======================================================================
+BRAND THEME MANAGEMENT
+======================
+
+Keep the current Grace & Glow theme as the default.
+
+Initial colors include approximately:
+
+* Forest green
+* Dark pine
+* Sage
+* Cream
+* Paper
+* Sand
+* Coral
+* Dark ink
+
+Allow selected brand colors to be managed through site settings.
+
+Implement theme colors with validated CSS custom properties.
+
+Do not dynamically generate arbitrary Tailwind class names from database values.
+
+Do not store unsanitized CSS.
+
+Validate colors as valid hexadecimal color values.
+
+Preserve adequate color contrast.
+
+Font settings must use a controlled list of supported font families.
+
+Do not permit arbitrary external font URLs through the admin panel.
+
+======================================================================
+MEDIA AND IMAGE HANDLING
+========================
+
+Move the initial frontend images into managed Laravel storage or the existing media system.
+
+Use the existing media-library package when the project already has one.
+
+Do not add a media package solely for basic file uploads unless clearly justified.
+
+Required behavior:
+
+* Correct public-storage configuration
+* Unique filenames
+* Safe file validation
+* Image MIME validation
+* File-size limits
+* Dimension limits
+* Prevention of executable uploads
+* Prevention of unsafe SVG uploads
+* Descriptive alternative text
+* Responsive image markup
+* Explicit image width and height
+* Lazy loading below the fold
+* Eager loading for the primary hero image
+* Appropriate `fetchpriority` for the hero image
+* Prevention of layout shift
+* Optional WebP or AVIF variants when supported
+* Preservation of original images where required
+* Safe file replacement
+* Prevention of deleting files still referenced by records
+
+Do not generate expensive image transformations during normal public requests.
+
+Use queues for expensive image processing when a queue is configured.
+
+Provide safe local fallback images only where appropriate.
+
+Do not rely on remote placeholder services.
+
+======================================================================
+SEO REQUIREMENTS
+================
+
+Implement complete technical and on-page SEO.
+
+Every indexable entity must support relevant SEO fields.
+
+Implement:
+
+* Dynamic HTML titles
+* Dynamic meta descriptions
+* Canonical URLs
+* Open Graph metadata
+* Twitter card metadata
+* Index and noindex controls
+* Follow and nofollow controls where required
+* Image alternative text
+* Semantic heading hierarchy
+* Breadcrumbs
+* XML sitemap
+* Robots.txt
+* Clean slugs
+* Redirects after slug changes
+* Pagination metadata
+* Correct 404 handling
+* Organization structured data
+* WebSite structured data
+* BreadcrumbList structured data
+* Product structured data
+* Article structured data
+* FAQPage structured data
+* Project or CreativeWork structured data where accurate
+
+Do not output structured-data properties without real values.
+
+Do not use fake:
+
+* Reviews
+* Aggregate ratings
+* Prices
+* Stock status
+* Certifications
+* Business addresses
+* Phone numbers
+* Product identifiers
+
+in structured data.
+
+Generate Product structured data only from valid product data.
+
+Generate Article structured data only for published posts.
+
+Generate FAQ structured data only when those FAQs are visibly rendered.
+
+Use the configured canonical domain.
+
+Prevent duplicate URLs.
+
+The sitemap must contain only:
+
+* Published pages
+* Published products
+* Published product categories when indexable
+* Published collections
+* Published posts
+* Published projects
+* Published research publications
+* Published impact stories
+
+Exclude:
+
+* Admin URLs
+* Drafts
+* Scheduled future content
+* Archived content
+* Soft-deleted content
+* Search-result pages
+* Filter query combinations
+* Private preview URLs
+
+Cache sitemap output appropriately.
+
+Invalidate sitemap cache whenever indexable content changes.
+
+Provide an admin SEO preview for:
+
+* Pages
+* Products
+* Product categories
+* Collections
+* Projects
+* Research publications
+* Posts
+* Impact stories
+
+Use this fallback priority:
+
+1. Record-specific SEO values
+2. Record title and excerpt
+3. Site-wide SEO defaults
+
+======================================================================
+PERFORMANCE REQUIREMENTS
+========================
+
+Performance is mandatory.
+
+The website must not become slow because its content is database-driven.
+
+Database requirements:
+
+* Add indexes for slugs
+* Add indexes for status
+* Add indexes for published_at
+* Add indexes for sort_order where useful
+* Add indexes for foreign keys
+* Use unique constraints where required
+* Use constrained foreign keys
+* Select appropriate cascade, null, or restrict behavior
+* Avoid unnecessary indexes
+* Avoid duplicate indexes
+
+Query requirements:
+
+* Prevent N+1 queries
+* Eager-load required relationships
+* Select only required columns for large listings
+* Paginate product listings
+* Paginate post listings
+* Paginate project listings
+* Paginate research listings
+* Use aggregate queries for dashboard statistics
+* Avoid database queries inside Blade loops
+* Avoid repeated global-settings queries
+* Avoid repeated navigation queries
+* Use scopes for published content
+* Use scopes for featured content
+* Use scopes for active content
+
+Caching requirements:
+
+* Cache global settings
+* Cache navigation menus
+* Cache expensive homepage data
+* Cache featured-content queries
+* Cache SEO defaults
+* Cache sitemap output
+* Invalidate related cache keys after admin changes
+* Use cache tags only when the configured cache driver supports them
+* Use the existing cache driver
+* Use Redis when Redis is already configured
+* Do not require Redis when another supported cache driver is configured
+* Prevent cache stampedes for expensive data where necessary
+
+Frontend requirements:
+
+* Use Vite production builds
+* Minify production assets
+* Avoid unused JavaScript
+* Remove the Tailwind CDN
+* Avoid render-blocking scripts
+* Preload only critical assets
+* Lazy-load below-the-fold images
+* Set image dimensions
+* Use responsive images
+* Keep the interface lightweight
+* Do not add large sliders for simple content
+* Do not add animation libraries for simple transitions
+* Respect reduced-motion preferences
+
+Deployment compatibility:
+
+Ensure compatibility with:
+
+* `php artisan config:cache`
+* `php artisan route:cache`
+* `php artisan view:cache`
+
+Do not:
+
+* Use closures in cached routes when avoidable
+* Call `env()` outside configuration files
+* Create non-serializable queue jobs
+* Place external HTTP requests in public-page rendering
+* Query LinkedIn during frontend requests
+* Use aggressive Livewire polling
+
+Ensure scheduled publication can operate through Laravel Scheduler.
+
+======================================================================
+SECURITY REQUIREMENTS
+=====================
+
+Apply secure Laravel practices throughout.
+
+Required protections:
+
+* CSRF protection
+* Server-side validation
+* Form Request classes where appropriate
+* Authorization policies
+* Rate limiting
+* Output escaping
+* Safe rich-text sanitization
+* Mass-assignment protection
+* File-upload validation
+* MIME checking
+* Maximum upload sizes
+* Safe filenames
+* Safe external-URL validation
+* SQL-injection protection through Eloquent and parameter binding
+* Secure production session configuration
+* Secure cookies in production
+* No production debug output
+* No exposed stack traces
+* No hardcoded credentials
+* No secrets committed to source control
+* No raw user HTML rendering without sanitization
+* No unsafe dynamic Blade includes
+* No arbitrary PHP, Blade, CSS, or JavaScript from database fields
+* No public access to private storage
+* No open redirects
+* No insecure direct-object references
+
+Rich-text content requirements:
+
+* Use a restricted set of allowed formatting
+* Sanitize output
+* Remove scripts
+* Remove event-handler attributes
+* Validate links
+* Add safe external-link attributes
+* Prevent embedded executable content
+
+Public contact form requirements:
+
+* Rate limiting
+* Honeypot protection
+* Maximum field lengths
+* Safe validation messages
+* No detailed internal errors
+* Safe abuse logging
+* Avoid logging complete private message bodies unless operationally required
+
+Security headers:
+
+Configure appropriate headers through middleware or the existing application/server setup without breaking the site:
+
+* Content-Security-Policy
+* X-Content-Type-Options
+* Referrer-Policy
+* Permissions-Policy
+* Frame restrictions
+* HSTS only when HTTPS is correctly configured
+
+Do not create an excessively strict Content Security Policy before identifying all required asset sources.
+
+Remove unnecessary inline scripts and the Tailwind CDN so that a safer Content Security Policy can be used.
+
+======================================================================
+CONTENT EDITING SAFETY
+======================
+
+Prevent administrators from accidentally breaking the frontend.
+
+Implement:
+
+* Field-length limits
+* Image-ratio guidance
+* Required-field validation
+* Valid publication transitions
+* URL validation
+* Slug uniqueness
+* Controlled icon selection
+* Controlled theme selection
+* Controlled section-type selection
+* Preview support where appropriate
+* Confirmation before permanent deletion
+* Soft deletes for important editorial records where appropriate
+* Restore actions where appropriate
+
+Use soft deletes where accidental deletion would be costly, including where appropriate:
+
+* Products
+* Pages
+* Posts
+* Projects
+* Research publications
+* Impact stories
+* Product collections
+
+Do not use soft deletes where they add no practical benefit.
+
+Prevent deletion of records that remain required by active relationships unless a safe relationship strategy exists.
+
+======================================================================
+AUDITING
+========
+
+Reuse an existing audit-log implementation if present.
+
+Otherwise, implement lightweight accountability without introducing an excessive dependency.
+
+At minimum, track where appropriate:
+
+* created_by
+* updated_by
+* created_at
+* updated_at
+* published_at
+
+For sensitive actions, record:
+
+* Site-settings changes
+* Publishing
+* Unpublishing
+* Slug changes
+* Redirect creation
+* Contact-message deletion
+* Permanent content deletion
+* Role or permission changes
+
+Do not store:
+
+* Administrator passwords
+* Authentication secrets
+* Session tokens
+* Complete sensitive request payloads
+* Unnecessary personal information
+
+inside audit logs.
+
+======================================================================
+INITIAL DATA IMPORT
+===================
+
+Create an idempotent import process or seeder for the initial Grace & Glow content.
+
+Requirements:
+
+* Import the existing ZIP images
+* Seed the current homepage content
+* Seed the impact metrics
+* Seed the four brand values
+* Seed product categories
+* Seed Ronger Golpo and Chitrokatha collections
+* Seed appropriate initial pages
+* Seed the LinkedIn social URL
+* Seed the current navigation
+* Seed the current footer links
+* Seed SEO defaults based on available page content
+* Seed projects or research only with accurate available information
+* Do not fabricate products
+* Do not create fake prices
+* Do not create fake contact details
+* Do not create fake testimonials
+* Do not create fake partners
+* Do not create fake artisan profiles
+
+Make the import idempotent using stable:
+
+* Slugs
+* Unique keys
+* Identifiers
+* `updateOrCreate`
+* `firstOrCreate`
+
+Running the importer more than once must not duplicate records.
+
+Do not automatically run destructive seeding in production.
+
+When the application already contains live data, provide a dedicated import command instead of unexpectedly modifying a general production seeder.
+
+======================================================================
+ACCESSIBILITY
+=============
+
+Maintain or improve accessibility.
+
+Requirements:
+
+* Semantic HTML
+* Proper heading hierarchy
+* Descriptive links
+* Keyboard-accessible navigation
+* Keyboard-accessible mobile menu
+* Visible focus indicators
+* Form labels
+* Accessible validation messages
+* Accessible accordion controls
+* Meaningful image alternative text
+* Decorative images marked correctly
+* Adequate color contrast
+* Reduced-motion support
+* Skip-to-content link
+* Proper button elements for actions
+* Proper anchor elements for navigation
+* Appropriate ARIA attributes only where necessary
+* No inaccessible click-only `div` elements
+
+Test mobile navigation with keyboard controls.
+
+Ensure menu state attributes remain synchronized.
+
+Ensure dynamic content does not introduce duplicate IDs.
+
+======================================================================
+ERROR HANDLING
+==============
+
+Implement user-friendly error handling.
+
+Create or preserve branded error pages for:
+
+* 404
+* 419
+* 429
+* 500
+* 503
+
+Do not expose exception messages publicly.
+
+Public forms must preserve safe input after validation failure.
+
+Admin validation must clearly identify invalid fields.
+
+Log failures with sufficient operational context while avoiding unnecessary personal-data logging.
+
+======================================================================
+TESTING
+=======
+
+Use the existing testing framework.
+
+When the project uses Pest, continue using Pest.
+
+When the project uses PHPUnit, continue using PHPUnit.
+
+Do not switch testing frameworks without a strong reason.
+
+Create automated tests covering at least the following.
+
+Public pages:
+
+* Homepage loads successfully
+* Published pages are visible
+* Draft pages are hidden
+* Scheduled pages are hidden before publication
+* Archived pages are hidden
+* Published products are visible
+* Draft products are hidden
+* Scheduled products are hidden before publication
+* Published posts are visible
+* Draft posts are hidden
+* Navigation renders correctly
+* Mobile navigation data renders correctly
+* Site settings render
+* Disabled homepage sections remain hidden
+* Homepage section order is respected
+* Product categories render
+* Product collections render
+* Impact metrics render dynamically
+* Empty optional fields remain hidden
+
+Contact form:
+
+* Valid contact submission succeeds
+* Invalid email is rejected
+* Required fields are enforced
+* Maximum lengths are enforced
+* Rate limiting works
+* Spam honeypot works
+* CSRF protection remains enabled
+* Contact messages appear in the admin data layer
+
+SEO:
+
+* Dynamic page title renders
+* Meta description renders
+* Canonical URL renders
+* Open Graph metadata renders
+* Sitemap excludes drafts
+* Sitemap excludes scheduled future content
+* Sitemap includes published records
+* Structured data contains valid JSON
+* Fake product schema fields are not emitted
+* FAQ schema is emitted only for visible FAQs
+
+Authorization:
+
+* Unauthorized users cannot access Filament
+* Restricted administrators cannot manage unauthorized resources
+* Authorized administrators can manage permitted resources
+* Custom Filament actions enforce policies
+* Settings permissions are enforced
+* Publishing permissions are enforced
+* Contact-message permissions are enforced
+
+Caching:
+
+* Settings cache is invalidated after updates
+* Navigation cache is invalidated after updates
+* Homepage cache is invalidated after relevant changes
+* Published content becomes visible after saving
+* Sitemap cache is invalidated after indexable-content changes
+
+Database:
+
+* Slugs are unique
+* Relationships operate correctly
+* Foreign-key behavior is correct
+* Publication scopes operate correctly
+* Soft-deleted records remain hidden publicly
+
+Use factories where useful.
+
+Do not use production data in tests.
+
+======================================================================
+QUALITY CONTROL AND COMMANDS
+============================
+
+After implementation:
+
+1. Run relevant migrations.
+2. Run the dedicated initial-content importer or seeder in the correct environment.
+3. Run Laravel Pint on modified PHP files.
+4. Run the existing static-analysis tool when installed.
+5. Run the complete relevant backend test suite.
+6. Run the frontend production build.
+7. Check Laravel application logs.
+8. Inspect browser console errors through available tools.
+9. Test desktop responsiveness.
+10. Test tablet responsiveness.
+11. Test mobile responsiveness.
+12. Verify all Filament resources.
+13. Verify resource authorization.
+14. Verify image uploads.
+15. Verify the contact form.
+16. Verify the sitemap.
+17. Verify robots.txt.
+18. Verify structured data.
+19. Verify canonical URLs.
+20. Verify there are no broken internal links.
+21. Verify there are no missing images.
+22. Verify no serious N+1 query issue exists.
+23. Verify route caching.
+24. Verify configuration caching.
+25. Verify view caching.
+26. Verify publication scheduling.
+27. Verify cache invalidation.
+28. Verify public draft protection.
+
+Run commands carefully.
+
+Do not use `--force` unnecessarily.
+
+Do not suppress failing tests to produce a successful result.
+
+Do not remove existing tests.
+
+Do not weaken validation or authorization to make tests pass.
+
+Do not claim completion while required tests or the production asset build are failing.
+
+======================================================================
+CODE QUALITY REQUIREMENTS
+=========================
+
+Follow the installed Laravel version’s conventions.
+
+Use where appropriate:
+
+* Strict type declarations
+* Return types
+* Constructor property promotion
+* PHP enums
+* Form Request classes
+* Policies
+* Service classes for shared business logic
+* Query scopes
+* Eloquent relationships
+* Blade components
+* Events or observers where useful
+* Transactions for multi-record operations
+* Queue jobs for expensive work
+
+Avoid:
+
+* Fat controllers
+* Business logic inside Blade
+* Database queries inside Blade loops
+* Duplicate queries
+* Duplicate components
+* Unnecessary static facades
+* Unnecessary repository layers
+* Generic helper files containing unrelated functions
+* Overengineering
+* Premature microservices
+* Arbitrary raw SQL
+* Unbounded database queries
+* Loading all products into memory
+* Loading all posts into memory
+* Unnecessary packages
+* Outdated Filament APIs
+* Hardcoded database IDs
+* Hardcoded production URLs
+* Hardcoded administrator email addresses
+
+Keep controllers focused.
+
+Create services only when they provide useful shared behavior.
+
+Possible services include:
+
+* SiteSettingsService
+* NavigationService
+* HomepageService
+* SeoService
+* SitemapService
+* MediaService
+* PublishingService
+
+Do not create empty abstraction classes with no practical purpose.
+
+======================================================================
+FINAL ACCEPTANCE CRITERIA
+=========================
+
+The task is complete only when all of the following are true:
+
+* The existing Laravel application still works.
+* Filament v5 still works.
+* Laravel Boost remains configured.
+* Existing authentication still works.
+* Existing authorization still works.
+* The supplied frontend design is preserved.
+* The Tailwind CDN is removed from production.
+* Frontend assets are built through the existing build system.
+* Every major frontend content area is database-driven.
+* Every major frontend content area can be managed through Filament.
+* Header navigation is dynamic.
+* Mobile navigation is dynamic.
+* Footer navigation is dynamic.
+* Hero content is dynamic.
+* Hero images are dynamic.
+* Impact metrics are dynamic.
+* Brand story is dynamic.
+* Mission content is dynamic.
+* Brand values are dynamic.
+* Product categories are dynamic.
+* Products are dynamic.
+* Product collections are dynamic.
+* Projects are dynamic.
+* Research publications are dynamic.
+* Impact stories are dynamic.
+* News posts are dynamic.
+* FAQs are dynamic.
+* Contact information is dynamic.
+* Social links are dynamic.
+* Contact submission works.
+* Contact-message management works.
+* Publication states work.
+* Scheduled publication works.
+* Section ordering works.
+* Section visibility works.
+* SEO metadata works.
+* Canonical URLs work.
+* Structured data works.
+* Sitemap works.
+* Robots.txt works.
+* Redirects work.
+* Images support proper alternative text.
+* Authorization works.
+* Validation works.
+* Cache invalidation works.
+* No frontend content depends on LinkedIn at runtime.
+* No fake business information was introduced.
+* No destructive database operation was used.
+* No serious N+1 issue exists.
+* No JavaScript console error exists.
+* No missing asset exists.
+* Production asset build succeeds.
+* Tests pass.
+* Code formatting passes.
+* Existing project functionality is not broken.
+
+======================================================================
+FINAL RESPONSE FORMAT
+=====================
+
+After completing the implementation, return a concise implementation report containing:
+
+1. Project inspection summary
+2. Existing systems that were reused
+3. Database tables and migrations created or modified
+4. Models and relationships created
+5. Filament resources and pages created
+6. Frontend routes and pages implemented
+7. Dynamic frontend sections connected
+8. Contact-form implementation
+9. SEO features implemented
+10. Security protections implemented
+11. Performance optimizations implemented
+12. Cache strategy and invalidation behavior
+13. Initial content imported
+14. Tests added
+15. Commands executed
+16. Test results
+17. Frontend production-build result
+18. Remaining items requiring real business information
+
+Do not return only a proposed plan.
+
+Do not stop after generating migrations or models.
+
+Do not provide placeholder pseudocode.
+
+Do not claim that functionality was completed without running and verifying it.
+
+Inspect, implement, run, test, fix, verify, and report the completed result.
+

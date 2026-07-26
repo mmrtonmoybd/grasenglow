@@ -1,0 +1,34 @@
+@props([
+    'section',
+])
+
+<section id="about-story" class="mx-auto max-w-[1450px] px-4 py-4 sm:px-6 lg:px-10">
+    <article class="paper-texture shadow-card grid overflow-hidden rounded-[24px] lg:grid-cols-[1fr_1.2fr]">
+        @if ($section->image)
+            <div class="group relative min-h-[360px] overflow-hidden">
+                <x-public-image
+                    :path="$section->image"
+                    :alt="$section->image_alt"
+                    width="312"
+                    height="251"
+                    class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div class="from-pine/80 via-pine/20 absolute inset-0 bg-gradient-to-r to-transparent"></div>
+            </div>
+        @endif
+
+        <div class="flex flex-col justify-center p-7 sm:p-10">
+            <p class="font-script text-coral text-2xl">Our story</p>
+            <h2 class="font-display text-forest mt-2 text-3xl leading-tight sm:text-4xl">{{ $section->heading }}</h2>
+            @if ($section->body)
+                <p class="text-ink/78 mt-5 text-sm leading-7 sm:text-base">{{ $section->body }}</p>
+            @endif
+
+            @if ($section->primary_cta_label && $section->primary_cta_url)
+                <x-button-link :href="$section->primary_cta_url" class="mt-7 w-fit">
+                    {{ $section->primary_cta_label }}
+                </x-button-link>
+            @endif
+        </div>
+    </article>
+</section>

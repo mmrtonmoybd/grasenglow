@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Admin\Resources\PostCategories\Pages;
+
+use App\Filament\Admin\Resources\PostCategories\PostCategoryResource;
+use Filament\Resources\Pages\CreateRecord;
+
+final class CreatePostCategory extends CreateRecord
+{
+    protected static string $resource = PostCategoryResource::class;
+}
