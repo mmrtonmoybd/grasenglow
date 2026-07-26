@@ -108,7 +108,9 @@
                 </svg>
             </span>
             <span class="text-left leading-tight">
-                <span class="block text-[9px] font-semibold tracking-[0.16em] text-white/70 uppercase">Developed by</span>
+                <span class="block text-[9px] font-semibold tracking-[0.16em] text-white/70 uppercase">
+                    Developed by
+                </span>
                 <span class="mt-0.5 block text-xs font-bold">Moshiur Rahman</span>
             </span>
         </a>

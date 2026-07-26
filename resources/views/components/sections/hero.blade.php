@@ -87,9 +87,7 @@
                         </div>
                     </div>
 
-                    <div
-                        class="hero-image bg-cream relative min-h-[460px] overflow-hidden lg:min-h-[680px]"
-                    >
+                    <div class="hero-image bg-cream relative min-h-[460px] overflow-hidden lg:min-h-[680px]">
                         <picture class="block h-full w-full">
                             <source
                                 media="(max-width: 767px)"
