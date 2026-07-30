@@ -24,6 +24,8 @@ final class SocialLinksTable
                     ->searchable(),
                 TextColumn::make('url')
                     ->searchable(),
+                TextColumn::make('icon')
+                    ->searchable(),
                 TextColumn::make('sort_order')
                     ->numeric()
                     ->sortable(),
