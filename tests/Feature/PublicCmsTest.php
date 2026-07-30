@@ -15,6 +15,7 @@ use App\Models\Post;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\SiteSetting;
+use App\Models\SocialLink;
 
 beforeEach(function (): void {
     SiteSetting::factory()->create();
@@ -42,6 +43,16 @@ it('renders the database-driven homepage in section order', function () {
 
 it('renders the linked developer credit and omits the announcement bar', function () {
     Page::factory()->create(['slug' => 'home', 'page_template' => PageTemplate::Homepage]);
+    SocialLink::query()->create([
+        'platform' => 'facebook',
+        'label' => 'Facebook',
+        'url' => 'https://example.com/facebook',
+        'icon' => null,
+        'sort_order' => 1,
+        'is_active' => true,
+        'open_in_new_tab' => true,
+    ]);
+
     SiteSetting::query()->firstOrFail()->update([
         'display_announcement' => true,
         'announcement_text' => 'Announcement must not render',
@@ -54,6 +65,9 @@ it('renders the linked developer credit and omits the announcement bar', functio
         ->assertSee('Developed by')
         ->assertSee('Moshiur Rahman')
         ->assertSee('https://www.facebook.com/mmrtonmoy', false)
+        ->assertSee('h-10 w-10', false)
+        ->assertSee('overflow-hidden rounded-full border', false)
+        ->assertSee('class="h-5 w-5 shrink-0"', false)
         ->assertDontSee('Announcement must not render');
 });
 
