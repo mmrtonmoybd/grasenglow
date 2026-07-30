@@ -47,7 +47,7 @@
                         aria-label="{{ $link->label }}"
                         @if ($link->open_in_new_tab) target="_blank" rel="noopener noreferrer" @endif
                     >
-                        {{ mb_strtoupper(mb_substr($link->label, 0, 2)) }}
+                        {!! $link->icon !!}
                     </a>
                 @endforeach
             </div>

@@ -32,12 +32,12 @@ final class SocialLinkForm
                     ->required(),
                 Select::make('icon')
                     ->options([
-                        'linkedin' => 'LinkedIn',
-                        'facebook' => 'Facebook',
-                        'instagram' => 'Instagram',
-                        'youtube' => 'YouTube',
-                        'pinterest' => 'Pinterest',
-                        'tiktok' => 'TikTok',
+                        '<img width="48" height="48" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>' => 'LinkedIn',
+                        '<img width="48" height="48" src="https://img.icons8.com/fluency/48/facebook.png" alt="facebook"/>' => 'Facebook',
+                        '<img width="48" height="48" src="https://img.icons8.com/fluency/48/instagram.png" alt="instagram"/>' => 'Instagram',
+                        '<img width="48" height="48" src="https://img.icons8.com/fluency/48/youtube.png" alt="youtube"/>' => 'YouTube',
+                        '<img width="48" height="48" src="https://img.icons8.com/fluency/48/pinterest.png" alt="pinterest"/>' => 'Pinterest',
+                        '<img width="48" height="48" src="https://img.icons8.com/fluency/48/tiktok.png" alt="tiktok"/>' => 'TikTok',
                     ]),
                 TextInput::make('sort_order')
                     ->required()

@@ -54,12 +54,12 @@ final class PageForm
                 TextInput::make('primary_cta_label')
                     ->default(null),
                 TextInput::make('primary_cta_url')
-                    ->url()
+                   // ->url()
                     ->default(null),
                 TextInput::make('secondary_cta_label')
                     ->default(null),
                 TextInput::make('secondary_cta_url')
-                    ->url()
+                   // ->url()
                     ->default(null),
                 Select::make('status')
                     ->options(ContentStatus::class)
@@ -73,7 +73,7 @@ final class PageForm
                 Toggle::make('is_indexable')
                     ->required(),
                 TextInput::make('canonical_url')
-                    ->url()
+                  //  ->url()
                     ->default(null),
                 TextInput::make('meta_title')
                     ->maxLength(70)
