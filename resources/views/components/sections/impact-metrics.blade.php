@@ -3,7 +3,7 @@
     'metrics',
 ])
 
-<section id="impact-metrics" class="relative z-10 mx-auto -mt-3 max-w-[1450px] px-4 pb-4 sm:px-6 lg:-mt-16 lg:px-10">
+<section id="impact-metrics" class="relative z-10 mx-auto mt-5 max-w-[1450px] px-4 pb-4 sm:mt-6 sm:px-6 lg:mt-8 lg:px-10">
     <div class="torn-edge paper-texture shadow-paper rounded-[28px] px-4 pt-7 pb-7 sm:px-8 sm:pt-9 lg:px-10">
         @if ($section->heading)
             <h2

@@ -5,13 +5,13 @@
 
 <article class="border-forest/8 bg-paper shadow-card overflow-hidden rounded-[20px] border">
     @if ($record->featured_image)
-        <a href="{{ route($route, $record) }}">
+        <a href="{{ route($route, $record) }}" class="block aspect-[5/3] overflow-hidden bg-cream/40">
             <x-public-image
                 :path="$record->featured_image"
                 :alt="$record->featured_image_alt"
                 width="700"
                 height="420"
-                class="aspect-[5/3] w-full object-cover"
+                class="h-full w-full object-contain"
             />
         </a>
     @endif

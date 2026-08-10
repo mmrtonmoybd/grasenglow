@@ -26,7 +26,6 @@ use App\Models\Project;
 use App\Models\ResearchPublication;
 use App\Models\Testimonial;
 use Illuminate\Http\Client\Factory as HttpFactory;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -204,76 +203,50 @@ final class DemoContentImporter
 
     private function importHeroSlides(): void
     {
-        $slides = [
-            [
-                'internal_name' => 'Circular textile story',
-                'eyebrow' => 'Waste becomes possibility',
-                'heading' => 'Every Scrap',
-                'subheading' => 'Deserves a Second Life',
-                'body' => 'Discover how careful sorting, thoughtful design, and handcraft can turn overlooked fabric into useful objects with lasting character.',
-                'image_key' => 'fabric-scraps',
-                'primary_cta_label' => 'Explore the Process',
-                'primary_cta_url' => '/what-we-do',
-                'secondary_cta_label' => 'Browse Products',
-                'secondary_cta_url' => '/products',
-                'duration_seconds' => 3,
+        HeroSlide::query()->updateOrCreate(['internal_name' => 'Homepage showcase'], [
+            'eyebrow' => 'Transforming textile waste into hope',
+            'heading' => 'Grace & Glow is a sustainability initiative that turns leftover fabrics into beautiful, handcrafted products with purpose.',
+            'subheading' => 'Made from rescued fabric. Created with care. Shared with compassion.',
+            'body' => 'Each rescued textile is sorted, reworked, and turned into useful handmade pieces that reduce waste and strengthen everyday compassion.',
+            'feature_items' => [
+                [
+                    'icon' => 'recycle',
+                    'tone' => 'forest',
+                    'title' => 'We collect textile waste',
+                    'body' => 'We collect textile waste from local sources and rescue useful fabric before it is discarded.',
+                ],
+                [
+                    'icon' => 'scissors',
+                    'tone' => 'rose',
+                    'title' => 'We upcycle it into quilts, bags & more.',
+                    'body' => 'We upcycle it into quilts, bags, home decor, and other handcrafted products.',
+                ],
+                [
+                    'icon' => 'paw',
+                    'tone' => 'gold',
+                    'title' => 'We support stray animals',
+                    'body' => 'We support stray animals by helping fund their food and basic medical care.',
+                ],
             ],
-            [
-                'internal_name' => 'Kantha craft heritage',
-                'eyebrow' => 'Crafted by hand',
-                'heading' => 'Stories in',
-                'subheading' => 'Every Stitch',
-                'body' => 'Kantha traditions show how layers of cloth, patient stitching, and personal motifs can carry memory into a new generation.',
-                'image_key' => 'kantha-artisan',
-                'primary_cta_label' => 'Read the Craft Story',
-                'primary_cta_url' => '/news/kantha-stitching-stories-into-cloth',
-                'secondary_cta_label' => 'Our Collections',
-                'secondary_cta_url' => '/collections/ronger-golpo',
-                'duration_seconds' => 3,
-            ],
-            [
-                'internal_name' => 'Compassion in action',
-                'eyebrow' => 'A kinder everyday',
-                'heading' => 'Made with',
-                'subheading' => 'Purpose and Care',
-                'body' => 'Grace & Glow connects responsible textile reuse with a wider commitment to kindness, local craft, and care for vulnerable animals.',
-                'image_key' => 'stray-dog',
-                'primary_cta_label' => 'See Our Mission',
-                'primary_cta_url' => '/mission',
-                'secondary_cta_label' => 'Explore Impact',
-                'secondary_cta_url' => '/impact',
-                'duration_seconds' => 3,
-            ],
-            [
-                'internal_name' => 'Color and home',
-                'eyebrow' => 'One of a kind',
-                'heading' => 'Bring Home',
-                'subheading' => 'Color with Meaning',
-                'body' => 'Representative catalogue pieces demonstrate how reclaimed textiles can become quilts, table accents, cushions, art, and practical accessories.',
-                'image_key' => 'craft-display',
-                'primary_cta_label' => 'View the Catalogue',
-                'primary_cta_url' => '/products',
-                'secondary_cta_label' => 'Meet the Values',
-                'secondary_cta_url' => '/about',
-                'duration_seconds' => 3,
-            ],
-        ];
+            'closing_text' => 'Every fabric saved protects our planet. Every creation made brings hope to an animal in need.',
+            'image' => 'grace-glow/hero-showcase-left-crop.png',
+            'mobile_image' => 'grace-glow/hero-showcase-left-crop.png',
+            'image_alt' => 'Grace & Glow showcase image with textile reuse, handcrafted quilting, and animal care message',
+            'primary_cta_label' => 'Explore Products',
+            'primary_cta_url' => '/products',
+            'secondary_cta_label' => 'Read Our Story',
+            'secondary_cta_url' => '/about',
+            'duration_seconds' => 3,
+            'source_url' => 'https://example.com/provided-demo-screenshot',
+            'license' => 'Provided for local demo use',
+            'attribution' => 'User-provided screenshot',
+            'sort_order' => 10,
+            'is_enabled' => true,
+        ]);
 
-        foreach ($slides as $order => $slide) {
-            $image = self::imageManifest()[$slide['image_key']];
-
-            HeroSlide::query()->updateOrCreate(['internal_name' => $slide['internal_name']], [
-                ...Arr::except($slide, 'image_key'),
-                'image' => $this->imagePath($slide['image_key']),
-                'mobile_image' => $this->imagePath($slide['image_key']),
-                'image_alt' => $image['alt'],
-                'source_url' => $image['source'],
-                'license' => $image['license'],
-                'attribution' => $image['attribution'],
-                'sort_order' => ($order + 1) * 10,
-                'is_enabled' => true,
-            ]);
-        }
+        HeroSlide::query()
+            ->where('internal_name', '!=', 'Homepage showcase')
+            ->update(['is_enabled' => false]);
     }
 
     private function enrichPages(): void

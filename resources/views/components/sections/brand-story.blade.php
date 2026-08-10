@@ -5,15 +5,14 @@
 <section id="about-story" class="mx-auto max-w-[1450px] px-4 py-4 sm:px-6 lg:px-10">
     <article class="paper-texture shadow-card grid overflow-hidden rounded-[24px] lg:grid-cols-[1fr_1.2fr]">
         @if ($section->image)
-            <div class="group relative min-h-[360px] overflow-hidden">
+            <div class="group relative min-h-[360px] overflow-hidden bg-cream/40 flex items-center justify-center">
                 <x-public-image
                     :path="$section->image"
                     :alt="$section->image_alt"
                     width="312"
                     height="251"
-                    class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    class="h-full w-full object-contain transition duration-700 group-hover:scale-105"
                 />
-                <div class="from-pine/80 via-pine/20 absolute inset-0 bg-gradient-to-r to-transparent"></div>
             </div>
         @endif
 

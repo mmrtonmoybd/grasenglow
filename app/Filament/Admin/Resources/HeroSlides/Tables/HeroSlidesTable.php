@@ -25,7 +25,7 @@ final class HeroSlidesTable
                     ->visibility('public')
                     ->square(),
                 TextColumn::make('internal_name')->searchable()->sortable(),
-                TextColumn::make('heading')->searchable(),
+                // TextColumn::make('heading')->searchable(),
                 TextColumn::make('duration_seconds')->suffix(' sec')->sortable(),
                 TextColumn::make('sort_order')->sortable(),
                 IconColumn::make('is_enabled')->boolean(),

@@ -4,13 +4,13 @@
 
 <article class="border-forest/8 bg-paper shadow-card overflow-hidden rounded-[20px] border">
     @if ($product->featured_image)
-        <a href="{{ route('products.show', $product) }}" class="block aspect-[4/3] overflow-hidden">
+        <a href="{{ route('products.show', $product) }}" class="block aspect-[4/3] overflow-hidden bg-cream/40">
             <x-public-image
                 :path="$product->featured_image"
                 :alt="$product->featured_image_alt"
                 width="640"
                 height="480"
-                class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                class="h-full w-full object-contain transition duration-500 hover:scale-105"
             />
         </a>
     @endif

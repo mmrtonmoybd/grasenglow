@@ -32,7 +32,7 @@
                 height="700"
                 loading="eager"
                 fetchpriority="high"
-                class="mt-8 aspect-[16/9] w-full rounded-[24px] object-cover"
+                class="mt-8 aspect-[16/9] w-full rounded-[24px] bg-cream/40 object-contain"
             />
         @endif
 

@@ -49,7 +49,7 @@ it('fills the demonstration CMS and remains idempotent', function () {
 
     $importer->import(downloadImages: false);
 
-    expect($firstCounts)->toBe([4, 13, 6, 10, 3, 4, 3])
+    expect($firstCounts)->toBe([1, 13, 6, 10, 3, 4, 3])
         ->and([
             HeroSlide::query()->count(),
             Product::query()->count(),

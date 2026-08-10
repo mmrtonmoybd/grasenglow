@@ -17,13 +17,13 @@
         @foreach ($categories as $category)
             <article class="group border-forest/8 shadow-card overflow-hidden rounded-[20px] border bg-[#eee8db]">
                 @if ($category->featured_image)
-                    <div class="aspect-[4/2.6] overflow-hidden">
+                    <div class="aspect-[4/2.6] overflow-hidden bg-cream/40">
                         <x-public-image
                             :path="$category->featured_image"
                             :alt="$category->featured_image_alt"
                             width="233"
                             height="149"
-                            class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                            class="h-full w-full object-contain transition duration-700 group-hover:scale-105"
                         />
                     </div>
                 @endif

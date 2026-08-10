@@ -9,7 +9,7 @@ use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SiteSetting;
 
-it('renders enabled hero slides in order with accessible automatic carousel controls', function () {
+it('renders static hero showcase from first enabled hero record with editable feature rows', function () {
     SiteSetting::factory()->create();
     $home = Page::factory()->create([
         'slug' => 'home',
@@ -29,7 +29,16 @@ it('renders enabled hero slides in order with accessible automatic carousel cont
     ]);
     HeroSlide::factory()->create([
         'internal_name' => 'First slide',
-        'heading' => 'First public slide with an intentionally long title that must never hide its actions',
+        'heading' => 'Static hero showcase heading',
+        'closing_text' => 'Closing line for hero showcase',
+        'feature_items' => [
+            [
+                'icon' => 'recycle',
+                'tone' => 'forest',
+                'title' => 'First editable feature',
+                'body' => 'First feature description',
+            ],
+        ],
         'sort_order' => 10,
         'duration_seconds' => 3,
     ]);
@@ -42,14 +51,14 @@ it('renders enabled hero slides in order with accessible automatic carousel cont
 
     $this->get(route('home'))
         ->assertSuccessful()
-        ->assertSeeInOrder(['First public slide with an intentionally long title', 'Second public slide'])
+        ->assertSee('Static hero showcase heading')
+        ->assertSee('First editable feature')
+        ->assertSee('Closing line for hero showcase')
+        ->assertDontSee('Second public slide')
         ->assertDontSee('Hidden public slide')
-        ->assertSee('data-hero-carousel', false)
-        ->assertSee('data-duration="3000"', false)
-        ->assertSee('object-contain object-center', false)
-        ->assertSee('col-start-1 row-start-1', false)
-        ->assertDontSee('hero-carousel__slide absolute', false)
-        ->assertSee('data-hero-previous', false)
-        ->assertSee('data-hero-next', false)
-        ->assertSee('aria-live="polite"', false);
+        ->assertDontSee('data-hero-carousel', false)
+        ->assertDontSee('data-hero-previous', false)
+        ->assertDontSee('data-hero-next', false)
+        ->assertSee('lg:grid-cols-[39%_61%]', false)
+        ->assertSee('class="block h-full w-full object-cover"', false);
 });

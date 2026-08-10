@@ -149,6 +149,41 @@ body {
     white-space: pre-line;
 }
 
+.prose-rich-text span.color,
+.prose-rich-text span[data-color],
+.prose-rich-text span[style*="color"] {
+    color: var(--color, inherit);
+}
+
+.prose-rich-text span[style*="color:"] {
+    color: attr(style);
+}
+
+.prose-rich-text span[data-color] {
+    color: attr(data-color);
+}
+
+/* Fallback mappings for theme color names & palette slugs */
+.prose-rich-text span[data-color="forest"],
+.prose-rich-text span[data-color="forest-green"] {
+    color: var(--color-forest) !important;
+}
+
+.prose-rich-text span[data-color="coral"],
+.prose-rich-text span[data-color="rose"],
+.prose-rich-text span[data-color="rose-coral"] {
+    color: var(--color-coral) !important;
+}
+
+.prose-rich-text span[data-color="gold"] {
+    color: #b48a44 !important;
+}
+
+.prose-rich-text span[data-color="ink"],
+.prose-rich-text span[data-color="dark-ink"] {
+    color: var(--color-ink) !important;
+}
+
 @media (max-width: 1023px) {
     .stat-card::after {
         display: none;

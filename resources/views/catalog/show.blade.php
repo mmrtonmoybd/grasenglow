@@ -20,7 +20,7 @@
                     height="700"
                     loading="eager"
                     fetchpriority="high"
-                    class="shadow-card aspect-[4/3] w-full rounded-[24px] object-cover"
+                    class="shadow-card aspect-[4/3] w-full rounded-[24px] object-contain"
                 />
             @endif
 
@@ -32,7 +32,7 @@
                             :alt="$image->alt_text"
                             width="300"
                             height="220"
-                            class="aspect-[4/3] w-full rounded-xl object-cover"
+                            class="aspect-[4/3] w-full rounded-xl object-contain"
                         />
                     @endforeach
                 </div>

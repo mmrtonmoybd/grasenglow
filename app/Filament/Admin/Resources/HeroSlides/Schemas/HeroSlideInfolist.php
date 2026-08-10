@@ -23,6 +23,13 @@ final class HeroSlideInfolist
                 TextEntry::make('heading'),
                 TextEntry::make('subheading'),
                 TextEntry::make('body')->columnSpanFull(),
+                TextEntry::make('feature_items')
+                    ->formatStateUsing(fn (mixed $state): string => collect(is_array($state) ? $state : (is_string($state) ? json_decode($state, true) ?? [] : []))
+                        ->filter(fn (mixed $item): bool => is_array($item))
+                        ->map(fn (array $item): string => ($item['title'] ?? '').': '.($item['body'] ?? ''))
+                        ->implode("\n"))
+                    ->columnSpanFull(),
+                TextEntry::make('closing_text')->columnSpanFull(),
                 TextEntry::make('primary_cta_label'),
                 TextEntry::make('primary_cta_url')->url(fn (string $state): string => $state),
                 TextEntry::make('secondary_cta_label'),
