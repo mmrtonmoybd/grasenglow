@@ -41,10 +41,12 @@
         <div>
             <nav class="text-ink/55 text-sm" aria-label="Breadcrumb">
                 <a href="{{ route('products.index') }}">Products</a>
-                /
-                <a href="{{ route('product-categories.show', $product->category) }}">
-                    {{ $product->category->name }}
-                </a>
+                @if ($product->category)
+                    /
+                    <a href="{{ route('product-categories.show', $product->category) }}">
+                        {{ $product->category->name }}
+                    </a>
+                @endif
             </nav>
             <h1 class="font-display text-forest mt-5 text-5xl">{{ $product->name }}</h1>
             @if ($product->short_description)

@@ -8,8 +8,8 @@ use App\Enums\SectionType;
 use App\Filament\Forms\Components\PublicImageUpload as FileUpload;
 use App\Rules\SafeUrl;
 use Filament\Forms\Components\KeyValue;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
@@ -34,8 +34,16 @@ final class PageSectionForm
                     ->default(null),
                 TextInput::make('subheading')
                     ->default(null),
-                Textarea::make('body')
+                MarkdownEditor::make('body')
                     ->default(null)
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'strike', 'link'],
+                        ['heading'],
+                        ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
+                        ['table'],
+                        ['undo', 'redo'],
+                    ])
+                    ->helperText('Markdown supported: **bold**, _italic_, # headings, - lists, [links](https://example.com).')
                     ->columnSpanFull(),
                 FileUpload::make('image')
                     ->image(),

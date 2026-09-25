@@ -47,9 +47,7 @@
             />
         @endif
 
-        @if ($page->body)
-            <div class="prose-content text-ink/80 mt-8 max-w-4xl text-base">{{ $page->body }}</div>
-        @endif
+        <x-markdown :content="$page->body" class="text-ink/80 mt-8 max-w-4xl text-base" />
     </section>
 
     @foreach ($page->sections as $section)

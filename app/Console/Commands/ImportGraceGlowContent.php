@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
+use App\Enums\AnnouncementTone;
 use App\Enums\ContentStatus;
 use App\Enums\LinkType;
 use App\Enums\PageTemplate;
@@ -83,10 +84,12 @@ final class ImportGraceGlowContent extends Command
             'country' => 'Bangladesh',
             'map_url' => 'https://www.openstreetmap.org/search?query=Tajmahal%20Road%20Dhaka%201207',
             'business_hours' => 'Online enquiries are accepted at any time. Response times and in-person availability must be confirmed directly.',
-            'display_announcement' => false,
-            'announcement_text' => null,
-            'announcement_url' => null,
-            'announcement_button_label' => null,
+            'display_announcement' => true,
+            'announcement_text' => 'Our new website is **under construction** — a few pages are still being stitched together. Everything here is live, so please explore.',
+            'announcement_url' => '/products',
+            'announcement_button_label' => 'Explore products',
+            'announcement_tone' => AnnouncementTone::Construction,
+            'announcement_is_dismissible' => true,
             'footer_description' => 'Rescued textiles become handmade lifestyle products that support people, animals, and the planet.',
             'footer_thank_you_text' => 'Thank you for supporting sustainability and compassion. Together, we create hope.',
             'copyright_text' => 'Grace & Glow. All rights reserved.',

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\AnnouncementTone;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -18,7 +19,8 @@ final class SiteSetting extends CmsModel
         'phone', 'whatsapp_number', 'address_line_1', 'address_line_2', 'city', 'postal_code', 'country',
         'map_url', 'business_hours', 'primary_color', 'secondary_color', 'accent_color', 'background_color',
         'text_color', 'heading_font', 'body_font', 'display_announcement', 'announcement_text',
-        'announcement_url', 'announcement_button_label', 'footer_description', 'footer_thank_you_text',
+        'announcement_url', 'announcement_button_label', 'announcement_tone', 'announcement_is_dismissible',
+        'footer_description', 'footer_thank_you_text',
         'copyright_text', 'privacy_page_id', 'terms_page_id', 'default_meta_title', 'default_meta_description',
         'default_meta_keywords', 'default_open_graph_image', 'organization_schema_name',
         'organization_schema_description', 'organization_schema_logo', 'canonical_domain',
@@ -40,6 +42,8 @@ final class SiteSetting extends CmsModel
     {
         return [
             'display_announcement' => 'boolean',
+            'announcement_is_dismissible' => 'boolean',
+            'announcement_tone' => AnnouncementTone::class,
             'robots_index_enabled' => 'boolean',
             'sitemap_enabled' => 'boolean',
         ];

@@ -8,9 +8,7 @@
         <h2 class="leaf-line font-display text-forest flex items-center justify-center text-3xl sm:text-4xl">
             {{ $section->heading }}
         </h2>
-        @if ($section->body)
-            <p class="text-ink/70 mt-2 text-sm">{{ $section->body }}</p>
-        @endif
+        <x-markdown :content="$section->body" class="text-ink/70 mt-2 text-sm" />
     </div>
 
     <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

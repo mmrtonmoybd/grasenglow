@@ -41,7 +41,7 @@ it('renders the database-driven homepage in section order', function () {
         ->assertSeeInOrder(['First dynamic section', 'Second dynamic section']);
 });
 
-it('renders the linked developer credit and omits the announcement bar', function () {
+it('renders the linked developer credit alongside the announcement bar', function () {
     Page::factory()->create(['slug' => 'home', 'page_template' => PageTemplate::Homepage]);
     SocialLink::query()->create([
         'platform' => 'facebook',
@@ -55,7 +55,7 @@ it('renders the linked developer credit and omits the announcement bar', functio
 
     SiteSetting::query()->firstOrFail()->update([
         'display_announcement' => true,
-        'announcement_text' => 'Announcement must not render',
+        'announcement_text' => 'Our website is under construction.',
         'announcement_url' => '/products',
         'announcement_button_label' => 'Explore',
     ]);
@@ -68,7 +68,8 @@ it('renders the linked developer credit and omits the announcement bar', functio
         ->assertSee('h-10 w-10', false)
         ->assertSee('overflow-hidden rounded-full border', false)
         ->assertSee('class="h-5 w-5 shrink-0"', false)
-        ->assertDontSee('Announcement must not render');
+        ->assertSee('Our website is under construction.')
+        ->assertSee('Explore');
 });
 
 it('hides disabled homepage sections and renders metrics values and categories dynamically', function () {

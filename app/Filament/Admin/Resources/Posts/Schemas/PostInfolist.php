@@ -28,6 +28,7 @@ final class PostInfolist
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('body')
+                    ->markdown()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 ImageEntry::make('featured_image')

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Admin\Pages;
 
+use App\Enums\AnnouncementTone;
 use App\Filament\Forms\Components\PublicImageUpload;
 use App\Models\Page as PageModel;
 use App\Models\SiteSetting;
@@ -21,6 +22,7 @@ use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use UnitEnum;
@@ -107,10 +109,38 @@ final class SiteSettings extends Page
                             ])->columns(2),
                         ]),
                         Tab::make('Footer & announcement')->schema([
-                            Toggle::make('display_announcement'),
-                            TextInput::make('announcement_text')->maxLength(255),
-                            TextInput::make('announcement_url')->rule(new SafeUrl)->maxLength(2048),
-                            TextInput::make('announcement_button_label')->maxLength(80),
+                            Toggle::make('display_announcement')
+                                ->label('Show announcement bar')
+                                ->helperText('Displays a site-wide banner above the header on every public page.')
+                                ->live(),
+                            Select::make('announcement_tone')
+                                ->label('Announcement style')
+                                ->options(AnnouncementTone::class)
+                                ->default(AnnouncementTone::Construction->value)
+                                ->required()
+                                ->visible(fn (Get $get): bool => (bool) $get('display_announcement')),
+                            TextInput::make('announcement_text')
+                                ->label('Announcement message')
+                                ->placeholder('Our website is under construction — some pages are still being updated.')
+                                ->requiredWith('display_announcement')
+                                ->maxLength(255)
+                                ->visible(fn (Get $get): bool => (bool) $get('display_announcement'))
+                                ->columnSpanFull(),
+                            TextInput::make('announcement_url')
+                                ->label('Announcement link (optional)')
+                                ->rule(new SafeUrl)
+                                ->maxLength(2048)
+                                ->visible(fn (Get $get): bool => (bool) $get('display_announcement')),
+                            TextInput::make('announcement_button_label')
+                                ->label('Announcement button label (optional)')
+                                ->requiredWith('announcement_url')
+                                ->maxLength(80)
+                                ->visible(fn (Get $get): bool => (bool) $get('display_announcement')),
+                            Toggle::make('announcement_is_dismissible')
+                                ->label('Visitors can dismiss it')
+                                ->helperText('Dismissal is remembered per browser until the message changes.')
+                                ->visible(fn (Get $get): bool => (bool) $get('display_announcement'))
+                                ->columnSpanFull(),
                             Textarea::make('footer_description')->maxLength(1000),
                             Textarea::make('footer_thank_you_text')->maxLength(1000),
                             TextInput::make('copyright_text')->maxLength(255),

@@ -26,6 +26,7 @@ final class PageInfolist
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('body')
+                    ->markdown()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('hero_title')

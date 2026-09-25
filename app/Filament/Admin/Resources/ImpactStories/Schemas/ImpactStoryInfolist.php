@@ -25,6 +25,7 @@ final class ImpactStoryInfolist
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('body')
+                    ->markdown()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('beneficiary_type')

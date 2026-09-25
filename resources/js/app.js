@@ -98,3 +98,30 @@ document.querySelectorAll('[data-hero-carousel]').forEach((carousel) => {
     showSlide(0, false)
     scheduleNext()
 })
+
+document.querySelectorAll('[data-announcement-bar]').forEach((bar) => {
+    const dismissButton = bar.querySelector('[data-announcement-dismiss]')
+
+    if (!dismissButton) {
+        return
+    }
+
+    dismissButton.addEventListener('click', () => {
+        try {
+            window.localStorage.setItem(bar.dataset.announcementKey, 'dismissed')
+        } catch (error) {
+            // Storage can be unavailable (private mode); dismissal is then session-only.
+        }
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+        if (prefersReducedMotion) {
+            bar.remove()
+
+            return
+        }
+
+        bar.setAttribute('data-announcement-closing', '')
+        bar.addEventListener('animationend', () => bar.remove(), { once: true })
+    })
+})

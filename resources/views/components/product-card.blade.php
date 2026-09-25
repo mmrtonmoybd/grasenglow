@@ -16,7 +16,9 @@
     @endif
 
     <div class="p-5">
-        <p class="text-forest/60 text-xs tracking-wider uppercase">{{ $product->category->name }}</p>
+        @if ($product->category)
+            <p class="text-forest/60 text-xs tracking-wider uppercase">{{ $product->category->name }}</p>
+        @endif
         <h2 class="font-display text-forest mt-1 text-2xl">
             <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
         </h2>

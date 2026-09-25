@@ -3,9 +3,7 @@
         <div>
             <p class="font-script text-coral text-2xl">Let’s connect</p>
             <h1 class="font-display text-forest mt-2 text-5xl">{{ $page->title }}</h1>
-            @if ($page->body)
-                <p class="text-ink/75 mt-5 text-base leading-7">{{ $page->body }}</p>
-            @endif
+            <x-markdown :content="$page->body" class="text-ink/75 mt-5 text-base leading-7" />
         </div>
 
         <form

@@ -15,7 +15,5 @@
         <p class="text-ink/70 mt-2 text-lg">{{ $section->subheading }}</p>
     @endif
 
-    @if ($section->body)
-        <div class="prose-content text-ink/80 mt-5">{{ $section->body }}</div>
-    @endif
+    <x-markdown :content="$section->body" class="text-ink/80 mt-5" />
 </section>

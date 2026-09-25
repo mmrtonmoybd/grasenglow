@@ -8,6 +8,7 @@ use App\Enums\ContentStatus;
 use App\Enums\PageTemplate;
 use App\Filament\Forms\Components\PublicImageUpload as FileUpload;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -36,8 +37,16 @@ final class PageForm
                 Textarea::make('excerpt')
                     ->default(null)
                     ->columnSpanFull(),
-                Textarea::make('body')
+                MarkdownEditor::make('body')
                     ->default(null)
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'strike', 'link'],
+                        ['heading'],
+                        ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
+                        ['table'],
+                        ['undo', 'redo'],
+                    ])
+                    ->helperText('Markdown supported: **bold**, _italic_, # headings, - lists, [links](https://example.com).')
                     ->columnSpanFull(),
                 TextInput::make('hero_title')
                     ->default(null),

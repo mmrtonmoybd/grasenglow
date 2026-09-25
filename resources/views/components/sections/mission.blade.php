@@ -8,9 +8,7 @@
             {{ $section->heading }}
             <span class="font-script text-coral">♡</span>
         </h2>
-        @if ($section->body)
-            <p class="text-ink/80 mt-5 max-w-4xl text-sm leading-7 sm:text-base">{{ $section->body }}</p>
-        @endif
+        <x-markdown :content="$section->body" class="text-ink/80 mt-5 max-w-4xl text-sm leading-7 sm:text-base" />
 
         @if ($section->primary_cta_label && $section->primary_cta_url)
             <x-button-link :href="$section->primary_cta_url" variant="secondary" class="mt-7">

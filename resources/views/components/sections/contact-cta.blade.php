@@ -15,9 +15,7 @@
             </span>
             <div>
                 <h2 class="font-display text-xl sm:text-2xl">{{ $section->heading }}</h2>
-                @if ($section->body)
-                    <p class="mt-1 text-xs text-white/75 sm:text-sm">{{ $section->body }}</p>
-                @endif
+                <x-markdown :content="$section->body" class="mt-1 text-xs text-white/75 sm:text-sm" />
             </div>
         </div>
         <form class="flex min-w-0 flex-col gap-3 sm:flex-row" action="{{ route('newsletter.store') }}" method="post">

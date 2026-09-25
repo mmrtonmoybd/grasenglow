@@ -19,9 +19,7 @@
         <div class="flex flex-col justify-center p-7 sm:p-10">
             <p class="font-script text-coral text-2xl">Our story</p>
             <h2 class="font-display text-forest mt-2 text-3xl leading-tight sm:text-4xl">{{ $section->heading }}</h2>
-            @if ($section->body)
-                <p class="text-ink/78 mt-5 text-sm leading-7 sm:text-base">{{ $section->body }}</p>
-            @endif
+            <x-markdown :content="$section->body" class="text-ink/78 mt-5 text-sm leading-7 sm:text-base" />
 
             @if ($section->primary_cta_label && $section->primary_cta_url)
                 <x-button-link :href="$section->primary_cta_url" class="mt-7 w-fit">

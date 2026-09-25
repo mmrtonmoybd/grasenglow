@@ -36,6 +36,6 @@
             />
         @endif
 
-        <div class="prose-content text-ink/80 mt-9">{{ $post->body }}</div>
+        <x-markdown :content="$post->body" class="text-ink/80 mt-9" />
     </article>
 </x-layouts.public>

@@ -27,6 +27,7 @@ final class PageSectionInfolist
                 TextEntry::make('subheading')
                     ->placeholder('-'),
                 TextEntry::make('body')
+                    ->markdown()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 ImageEntry::make('image')

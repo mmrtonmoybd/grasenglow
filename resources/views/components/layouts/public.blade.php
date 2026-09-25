@@ -45,6 +45,7 @@
         >
             Skip to content
         </a>
+        <x-announcement-bar :settings="$siteSettings" />
         <x-public-header :site-settings="$siteSettings" :header-navigation="$headerNavigation" />
         <main id="main-content">
             {{ $slot }}
