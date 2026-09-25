@@ -10,6 +10,9 @@
             'html_input' => 'strip',
             'allow_unsafe_links' => false,
         ]);
+
+    /** Let uploaded images load lazily and decode off the main thread. */
+    $markdownHtml = str_replace('<img src=', '<img loading="lazy" decoding="async" src=', $markdownHtml);
 @endphp
 
 @if ($markdownHtml !== '')

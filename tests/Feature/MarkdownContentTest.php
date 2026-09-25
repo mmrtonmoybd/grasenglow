@@ -67,3 +67,17 @@ it('strips raw html from markdown body content', function () {
         ->assertSuccessful()
         ->assertDontSee('<script>alert(1)</script>', false);
 });
+
+it('renders uploaded images inside markdown body content', function () {
+    $page = Page::factory()->create([
+        'slug' => 'gallery',
+        'body' => "Our workshop:\n\n![Artisans at work](/storage/cms/markdown/workshop.jpg)",
+    ]);
+
+    $this->get(route('page.show', $page))
+        ->assertSuccessful()
+        ->assertSee('src="/storage/cms/markdown/workshop.jpg"', false)
+        ->assertSee('alt="Artisans at work"', false)
+        ->assertSee('loading="lazy"', false)
+        ->assertSee('decoding="async"', false);
+});

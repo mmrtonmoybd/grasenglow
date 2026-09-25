@@ -6,9 +6,9 @@ namespace App\Filament\Admin\Resources\ImpactStories\Schemas;
 
 use App\Enums\ContentStatus;
 use App\Filament\Forms\Components\PublicImageUpload as FileUpload;
+use App\Filament\Forms\Components\PublicMarkdownEditor as MarkdownEditor;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -36,14 +36,6 @@ final class ImpactStoryForm
                     ->columnSpanFull(),
                 MarkdownEditor::make('body')
                     ->default(null)
-                    ->toolbarButtons([
-                        ['bold', 'italic', 'strike', 'link'],
-                        ['heading'],
-                        ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
-                        ['table'],
-                        ['undo', 'redo'],
-                    ])
-                    ->helperText('Markdown supported: **bold**, _italic_, # headings, - lists, [links](https://example.com).')
                     ->columnSpanFull(),
                 TextInput::make('beneficiary_type')
                     ->default(null),
