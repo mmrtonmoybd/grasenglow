@@ -1,125 +1,116 @@
-## FilaStarter Kit
+# Grace & Glow
 
-A Starter Kit For Filament with most necessities
-pre-configured based on personal preferences/requirements.
+**Transforming Textile Waste into Hope** — the website and content management system for Grace & Glow, a Dhaka-based social enterprise that turns rescued textiles into handmade lifestyle products supporting people, animals, and the planet.
 
-Preview Login:
+Built with Laravel 13, Filament 5, Livewire 4, and Tailwind CSS 4.
 
-| Dark                                                                                                          | Light                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| ![](https://raw.githubusercontent.com/raugadh/fila-starter/refs/heads/master/.github/preview-login-dark.webp) | ![](https://raw.githubusercontent.com/raugadh/fila-starter/refs/heads/master/.github/preview-login-light.webp) |
+## Features
 
-Preview DashBoard:
+### Public website
 
-| Dark                                                                                                              | Light                                                                                                              |
-| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ![](https://raw.githubusercontent.com/raugadh/fila-starter/refs/heads/master/.github/preview-dashboard-dark.webp) | ![](https://raw.githubusercontent.com/raugadh/fila-starter/refs/heads/master/.github/preview-dashboard-light.webp) |
+- **Homepage** built from reorderable page sections and a hero carousel
+- **Product catalog** with categories, collections, and image galleries
+- **Impact** stories and metrics, **projects**, **research publications**, and **news** posts
+- **CMS pages** at `/{slug}` with Markdown content and attachments
+- **Contact form** and **newsletter signup**, both rate limited
+- Announcement bar, configurable navigation menus, social links, FAQs, testimonials, partners, and artisan profiles
+- SEO: meta tags, Open Graph, organization schema, `sitemap.xml`, `robots.txt`, and managed redirects
+- Branded error pages
 
-### Packages
+### Admin panel (`/admin`)
 
-[Laravel v12](https://github.com/laravel/laravel)  
-[Livewire v4](https://github.com/livewire/livewire)  
-[Filament v5](https://github.com/filamentphp/filament)
+- Filament resources for all content types, plus users
+- **Site Settings** page for branding (name, taglines, colors, fonts), contact details, announcement bar, and SEO defaults
+- Dashboard widgets: content overview, recent contact messages, and access logs
+- Role and permission management via Filament Shield
+- Profile management via Filament Breezy
+- Activity logging, global search modal, and a shadcn-styled theme
 
-#### Packages Installed/Pre-configured
+## Tech stack
 
-- Filament Packages
-    - awcodes/overlook
-    - bezhansalleh/filament-shield
-    - caresome/filament-auth-designer
-    - charrafimed/global-search-modal
-    - dutchcodingcompany/filament-developer-logins
-    - jacobtims/filament-logger
-    - jeffgreco13/filament-breezy
-    - marcelweidum/filament-expiration-notice
-    - openplain/filament-shadcn-theme (Theme)
+| Layer    | Packages                                                 |
+| -------- | -------------------------------------------------------- |
+| Backend  | PHP 8.4, Laravel 13                                      |
+| Admin    | Filament 5, Livewire 4, Filament Shield, Filament Breezy |
+| Frontend | Blade, Tailwind CSS 4, Vite 7                            |
+| Testing  | Pest 4                                                   |
+| Tooling  | Laravel Pint, Prettier, Laravel Boost, Debugbar          |
 
-- Other Packages
-    - barryvdh/laravel-debugbar
-    - laravel/boost
+## Getting started
 
-### Compatibility
+### Requirements
 
-| Starter Kit | Filament Version |
-| ----------- | ---------------- |
-| **2.x**     | **_3.x_**        |
-| **3.x**     | **4.x**          |
-| **4.x**     | **5.x**          |
+- PHP 8.4+
+- Composer
+- Node.js and npm
+- SQLite (default) or another database supported by Laravel
 
 ### Installation
 
-#### Create New Project
+```bash
+git clone https://github.com/mmrtonmoybd/grasenglow.git
+cd grasenglow
 
-```properties
-composer create-project --prefer-dist raugadh/fila-starter example-app
+composer setup          # install deps, create .env, generate key, build assets
+php artisan storage:link
+php artisan project:init
 ```
 
-#### Deployment
+`project:init` runs `migrate:fresh`, generates Shield permissions and policies, seeds the database, and makes user #1 a super admin.
 
-- Configure Project.
-    - Update Composer Packages
-    - Add Database Credentials
-    - Add ASSET_PREFIX if deployed application in sub-folder
-    - Link Storage
+> **Warning:** `project:init` drops all tables. Do not run it against a database with data you want to keep.
 
-        ```properties
-        php artisan storage:link
-        ```
+The default seeded admin account is `admin@admin.com`. Its password is `password` — change it right away.
 
-- Initialize Project
+### Import initial content (optional)
 
-    ```properties
-    php artisan project:init
-    ```
+```bash
+php artisan cms:import-grace-glow --source=/path/to/grace-glow
+```
 
-- Update Permissions and Migrations
-    - Whenever new Resource , Page or migration is Added Run update command to migrate and create permissions.
-        ```properties
-        php artisan project:update
-        ```
+Imports settings, pages, navigation, homepage sections, and demo content from the supplied frontend design. It can be run more than once safely. Pass `--skip-public-downloads` to keep existing images instead of downloading them again.
 
-- build vite assets
+### Run locally
 
-    ```properties
-    npm install
-    ```
+```bash
+composer dev
+```
 
-    ```properties
-    npm run build
-    ```
+Starts the web server, queue listener, and Vite dev server together. Visit the site at `http://localhost:8000` and the admin panel at `http://localhost:8000/admin`.
 
-- Clear/Generate New Cache
+## Artisan commands
 
-    ```properties
-    php artisan project:cache
-    ```
+| Command                                     | Purpose                                                              |
+| ------------------------------------------- | -------------------------------------------------------------------- |
+| `php artisan project:init`                  | Fresh migrate, generate permissions, seed, and assign super admin    |
+| `php artisan project:update`                | Run new migrations and regenerate permissions after adding resources |
+| `php artisan project:cache`                 | Clear and rebuild application caches                                 |
+| `php artisan cms:import-grace-glow`         | Import initial Grace & Glow content and assets                       |
+| `php artisan cms:refresh-publication-cache` | Refresh caches that can hold scheduled public content                |
 
-- Configure [Laravel Boost](https://github.com/laravel/boost)
+## Testing and code style
 
-    ```properties
-    php artisan boost:install
-    ```
+```bash
+composer test     # run the Pest test suite
+composer lint     # check with Pint and Prettier
+composer fix      # fix with Pint and Prettier
+```
 
-##### Make sure to check custom console commands yourself and change them based on your requirements.
+## Deployment
 
-### Lint & Fix
+1. Set database credentials and `APP_URL` in `.env` (and `ASSET_PREFIX` if served from a sub-folder).
+2. `composer install --no-dev --optimize-autoloader`
+3. `php artisan migrate --force` (or `project:update`)
+4. `php artisan storage:link`
+5. `npm ci && npm run build`
+6. `php artisan project:cache`
 
-- Pint ('test') & Prettier('check')
+Run the scheduler (`php artisan schedule:run` every minute) so scheduled content goes live on time.
 
-    ```properties
-    composer lint
-    ```
+## Credits
 
-- Pint & Prettier('write')
-
-    ```properties
-    composer fix
-    ```
-
-#### Enjoy
-
-    Thanks for using this kit, leave a star if you found this useful.
+Built on the [FilaStarter Kit](https://github.com/raugadh/fila-starter) by Ankit Kumar Singh.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+Released under the [MIT License](LICENSE.md).
