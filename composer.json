@@ -1,15 +1,21 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "raugadh/fila-starter",
+    "name": "mmrtonmoybd/grasenglow",
     "type": "project",
-    "description": "Laravel Filament Starter.",
+    "description": "Grace & Glow website and CMS, built with Laravel and Filament.",
     "keywords": [
         "laravel",
-        "framework",
         "filament",
-        "starter kit"
+        "cms",
+        "grace-glow"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Moshiur Rahman",
+            "email": "rmedha037@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "awcodes/overlook": "^4.0",
